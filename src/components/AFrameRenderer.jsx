@@ -1,24 +1,24 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { renderVirtualComponent } from '../utils/ARToolKitHandler';
 import SceneRenderer from './SceneRenderer';
 import { rendererPropsType } from '../utils/PropChecking';
 
-const ARFrameRenderer = ({ ...rest }) => {
+const AFrameRenderer = (props) => {
   const container = document.body;
-  let renderer = null;
+  const renderer = useRef();
 
   return renderVirtualComponent(
-    <SceneRenderer {...rest} renderer={renderer} />,
+    <SceneRenderer {...props} renderer={renderer} />,
     container
   );
 };
 
-ARFrameRenderer.propTypes = rendererPropsType;
+AFrameRenderer.propTypes = rendererPropsType;
 
-ARFrameRenderer.defaultProps = {
+AFrameRenderer.defaultProps = {
   arToolKit: {},
   getSceneRef: () => {},
   inherent: true,
 };
 
-export default ARFrameRenderer;
+export default AFrameRenderer;

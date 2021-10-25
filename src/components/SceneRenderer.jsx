@@ -17,14 +17,14 @@ const SceneRenderer = ({
     <a-scene
       ref={(sceneRef) => {
         passSceneRef(getSceneRef, sceneRef);
-        renderer = sceneRef;
+        renderer.current = sceneRef;
       }}
       embedded
       arjs={prepareToolKitParams(arToolKit)}
       {...rest}
     >
-      {children}
       {inherentMode(inherent)}
+      {children}
     </a-scene>
   );
 };
