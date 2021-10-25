@@ -1,27 +1,38 @@
-import logo from './logo.svg';
-import ARProvider from './components/ARProvider';
+import React, { useRef } from 'react';
+import AFrameRenderer from './components/AFrameRenderer';
+import Marker from './components/Marker';
+import Animation from './components/Animation';
 import './App.css';
+import Entity from './components/Entity';
 
 const App = () => {
+  const scene = useRef();
+
   return (
-    <ARProvider>
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div className="App">
+      <AFrameRenderer
+        arToolKit={{}}
+        stats
+        getSceneRef={(ref) => (scene.current = ref)}
+      >
+        <Marker parameters={{ preset: 'hiro' }}>
+          <Entity
+            material="color: red"
+            gltf-model="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf"
+            scale="0.02 0.02 0.02"
+            position="0 0 -1"
           >
-            Learn React
-          </a>
-        </header>
-      </div>
-    </ARProvider>
+            <Animation
+              attribute="rotation"
+              to="360 0 0"
+              dur="5000"
+              easing="linear"
+              repeat="indefinite"
+            />
+          </Entity>
+        </Marker>
+      </AFrameRenderer>
+    </div>
   );
 };
 
