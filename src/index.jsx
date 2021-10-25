@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import ARProvider from './components/ARProvider';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ARProvider>
+      <App />
+    </ARProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
