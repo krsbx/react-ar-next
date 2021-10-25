@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import PropTypes from 'prop-types';
 import {
   DETECTION_MODE,
@@ -28,6 +29,7 @@ export const rendererPropsType = {
   }),
   getSceneRef: PropTypes.func,
   inherent: PropTypes.bool,
+  stats: PropTypes.bool,
 };
 
 export const animationPropType = {
@@ -37,3 +39,32 @@ export const animationPropType = {
   easing: PropTypes.string,
   repeat: PropTypes.string,
 };
+
+export const markerPropType = {
+  parameters: PropTypes.shape({
+    type: PropTypes.string,
+    size: PropTypes.number,
+    patternUrl: PropTypes.string,
+    url: PropTypes.string,
+    barcodeValue: PropTypes.number,
+    changeMatrixMode: PropTypes.string,
+    minConfidence: PropTypes.number,
+    preset: PropTypes.string,
+    markerhelpers: PropTypes.bool,
+    'hit-testing-enabled': PropTypes.bool,
+    'hit-testing-renderDebug': PropTypes.bool,
+  }),
+  inherent: PropTypes.bool,
+};
+
+export const boxPropType = {
+  color: PropTypes.string,
+  material: PropTypes.string,
+  position: PropTypes.string,
+  scale: PropTypes.string,
+};
+
+export const entityPropType = _.assign(boxPropType, {
+  'gltf-model': PropTypes.string,
+  geometry: PropTypes.string,
+});
