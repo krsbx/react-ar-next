@@ -1,30 +1,28 @@
 {
   "name": "react-ar-next",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0-beta",
+  "description": "Another React Web AR",
+  "main": "src/index.js",
+  "keywords": [
+    "react",
+    "web ar",
+    "augmented reality",
+    "ar"
+  ],
+  "author": {
+    "name": "KRSBX"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krsbx/react-ar-next.git"
+  },
+  "bugs": {
+    "url": "https://github.com/krsbx/react-ar-next/issues"
+  },
   "dependencies": {
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
     "lodash": "^4.17.21",
-    "prop-types": "^15.7.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
-    "three": "^0.133.1",
-    "web-vitals": "^1.1.2"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "prop-types": "^15.7.2"
   },
   "browserslist": {
     "production": [
