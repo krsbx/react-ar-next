@@ -22,6 +22,7 @@ const SceneRenderer = ({
       embedded
       arjs={prepareToolKitParams(arToolKit)}
       {...rest}
+      vr-mode-ui="enabled: false"
     >
       {inherentMode(inherent)}
       {children}

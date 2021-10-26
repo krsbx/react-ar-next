@@ -26,3 +26,4 @@ package.original.json
 package-lock.json
 
 src/index.jsx
+/public
