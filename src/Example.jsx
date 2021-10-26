@@ -4,7 +4,7 @@ import Marker from './components/Marker';
 import Animation from './components/Animation';
 import Entity from './components/Entity';
 
-const App = () => {
+const Example = () => {
   const scene = useRef();
 
   return (
@@ -35,4 +35,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Example;

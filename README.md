@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# Getting Started with React AR Next
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was base on [React Web AR](https://github.com/nitin42/React-Web-AR).
 
-## Available Scripts
+## Available Component
 
-In the project directory, you can run:
+In your React Component you could use:
 
-### `npm start`
+### `ARProvider`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This component need to be on the top level before you use AFrameRenderer or any other Component.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### `AFrameRenderer`
 
-### `npm test`
+This component will generate a new scene for the Augmented Reality
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `Animation` (Will be removed on the next versions)
 
-### `npm run build`
+This component is only for running a simple animation, please read more about [a-animation](https://aframe.io/docs/1.2.0/components/animation.html#properties) in [Aframe](https://aframe.io/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `Box`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This component is a primative element in [AFrame](https://aframe.io/docs/1.2.0/primitives/a-box.html)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `Entity`
 
-### `npm run eject`
+This component is an entity element in [AFrame](https://aframe.io/docs/1.2.0/core/entity.html)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### `Marker`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This component is a marker object in [AR Js](https://ar-js-org.github.io/AR.js-Docs/marker-based/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### `Example`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+This component is an example of the [AR Js](https://ar-js-org.github.io/AR.js-Docs/)
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Usage and Implementations
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Add ARProvider in the top level of your React Apps, you could add it in index.js, inde.jsx or App.js, App.jsx as long as the other component is being used after that files.
+2. Add AFrameRenderer on the top level before the other component
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    Example in App.jsx:
+    ```js
+    <div>
+      <AFrameRenderer>
+      {....}
+      </AFrameRenderer>
+    </div>
+    ```
+3. Add Marker component followed by Entity or Box component
+   
+    Example in App.jsx:
+    ```js
+    ...
+    <Marker parameters={...}>
+      <Entity .../>
+    </Marker>
+    ...
+    ```
+4. Run your react apps and have fun
