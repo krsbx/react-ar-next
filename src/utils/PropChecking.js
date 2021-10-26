@@ -1,7 +1,11 @@
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 import {
+  ANIMATION_DIRECTIONS,
+  ANIMATION_EASING,
   DETECTION_MODE,
+  MARKER_PRESET,
+  MARKER_TYPE,
   MATRIX_CODE_TYPE,
   SOURCE_TYPE,
   TRACKING_METHOD,
@@ -37,9 +41,9 @@ export const animationPropType = {
   from: PropTypes.string,
   to: PropTypes.string,
   delay: PropTypes.number,
-  dir: PropTypes.oneOf(['normal', 'alternate', 'reverse']),
-  dur: PropTypes.string,
-  easing: PropTypes.string,
+  dir: PropTypes.oneOf(ANIMATION_DIRECTIONS),
+  dur: PropTypes.number,
+  easing: PropTypes.oneOf(ANIMATION_EASING),
   elasticity: PropTypes.number,
   loop: PropTypes.bool,
   round: PropTypes.bool,
@@ -49,14 +53,14 @@ export const animationPropType = {
 
 export const markerPropType = {
   parameters: PropTypes.shape({
-    type: PropTypes.string,
+    type: PropTypes.oneOf(MARKER_TYPE),
     size: PropTypes.number,
     patternUrl: PropTypes.string,
     url: PropTypes.string,
     barcodeValue: PropTypes.number,
     changeMatrixMode: PropTypes.string,
     minConfidence: PropTypes.number,
-    preset: PropTypes.string,
+    preset: PropTypes.oneOf(MARKER_PRESET),
     markerhelpers: PropTypes.bool,
     'hit-testing-enabled': PropTypes.bool,
     'hit-testing-renderDebug': PropTypes.bool,

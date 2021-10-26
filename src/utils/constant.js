@@ -45,6 +45,43 @@ export const MATRIX_CODE_TYPE = [
 
 export const TRACKING_METHOD = ['tango', 'artoolkit', 'best'];
 
+export const MARKER_TYPE = ['pattern', 'barcode', 'unknown'];
+
+export const MARKER_PRESET = ['hiro', 'kanji', 'custom'];
+
+export const ANIMATION_DIRECTIONS = ['normal', 'alternate', 'reverse'];
+
+export const ANIMATION_EASING = [
+  'easeInQuad',
+  'easeOutQuad',
+  'easeInOutQuad,',
+  'easeInCubic',
+  'easeOutCubic',
+  'easeInOutCubic',
+  'easeInQuart',
+  'easeOutQuart',
+  'easeInOutQuart',
+  'easeInQuint',
+  'easeOutQuint',
+  'easeInOutQuint',
+  'easeInSine',
+  'easeOutSine',
+  'easeInOutSine',
+  'easeInExpo',
+  'easeOutExpo',
+  'easeInOutExpo',
+  'easeInCirc',
+  'easeOutCirc',
+  'easeInOutCirc',
+  'easeInBack',
+  'easeOutBack',
+  'easeInOutBack',
+  'easeInElastic',
+  'easeOutElastic',
+  'easeInOutElastic',
+  'linear',
+];
+
 export const ANIMATION_PROPERTIES = [
   'property',
   'isRawProperty',

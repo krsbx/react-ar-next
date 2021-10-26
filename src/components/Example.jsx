@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
-import AFrameRenderer from './components/AFrameRenderer';
-import Marker from './components/Marker';
-import Entity from './components/Entity';
+import AFrameRenderer from './AFrameRenderer';
+import Marker from './Marker';
+import Entity from './Entity';
 
 const Example = () => {
   const scene = useRef();
