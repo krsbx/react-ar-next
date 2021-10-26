@@ -44,3 +44,23 @@ export const MATRIX_CODE_TYPE = [
 ];
 
 export const TRACKING_METHOD = ['tango', 'artoolkit', 'best'];
+
+export const ANIMATION_PROPERTIES = [
+  'property',
+  'isRawProperty',
+  'from',
+  'to',
+  'type',
+  'delay',
+  'dir',
+  'dur',
+  'easing',
+  'elasticity',
+  'loop',
+  'round',
+  'startEvents',
+  'pauseEvents',
+  'resumeEvents',
+  'autoplay',
+  'enabled',
+];

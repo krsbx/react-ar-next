@@ -5,9 +5,9 @@ import { PARAMETERS } from './constant';
 export const prepareToolKitParams = (parameters) => {
   let toolKitParams = '';
 
-  _.forEach(parameters, (param, index) => {
-    if (_.includes(PARAMETERS, param))
-      toolKitParams += `${param}: ${parameters[param]};`;
+  _.forEach(parameters, (value, index) => {
+    if (_.includes(PARAMETERS, index))
+      toolKitParams += `${index}: ${parameters[index]};`;
   });
 
   return toolKitParams;

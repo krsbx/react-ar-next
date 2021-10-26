@@ -33,11 +33,18 @@ export const rendererPropsType = {
 };
 
 export const animationPropType = {
-  attribute: PropTypes.string,
+  property: PropTypes.string,
+  from: PropTypes.string,
   to: PropTypes.string,
+  delay: PropTypes.number,
+  dir: PropTypes.oneOf(['normal', 'alternate', 'reverse']),
   dur: PropTypes.string,
   easing: PropTypes.string,
-  repeat: PropTypes.string,
+  elasticity: PropTypes.number,
+  loop: PropTypes.bool,
+  round: PropTypes.bool,
+  autoplay: PropTypes.bool,
+  enabled: PropTypes.bool,
 };
 
 export const markerPropType = {
@@ -62,6 +69,7 @@ export const boxPropType = {
   material: PropTypes.string,
   position: PropTypes.string,
   scale: PropTypes.string,
+  animation: PropTypes.shape(animationPropType),
 };
 
 export const entityPropType = _.assign(boxPropType, {

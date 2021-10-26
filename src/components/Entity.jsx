@@ -1,9 +1,19 @@
 import _ from 'lodash';
 import React from 'react';
 import { entityPropType } from '../utils/PropChecking';
+import { getAnimations } from '../utils/AnimationHandler';
 
 const Entity = (props) => {
-  return <a-entity {..._.omit(props, ['children'])}>{props.children}</a-entity>;
+  const animation = props.animation && getAnimations(props.animation);
+
+  return (
+    <a-entity
+      {..._.omit(props, ['children', 'animation'])}
+      animation={animation}
+    >
+      {props.children}
+    </a-entity>
+  );
 };
 
 Entity.propTypes = entityPropType;

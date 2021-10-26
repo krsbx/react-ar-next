@@ -14,9 +14,6 @@ This component need to be on the top level before you use AFrameRenderer or any 
 
 This component will generate a new scene for the Augmented Reality
 
-### `Animation` (Will be removed on the next versions)
-
-This component is only for running a simple animation, please read more about [a-animation](https://aframe.io/docs/1.2.0/components/animation.html#properties) in [Aframe](https://aframe.io/)
 
 ### `Box`
 
@@ -58,4 +55,20 @@ This component is an example of the [AR Js](https://ar-js-org.github.io/AR.js-Do
     </Marker>
     ...
     ```
-4. Run your react apps and have fun
+4. Add some Animation if you want a simple animations
+   
+   Example in App.jsx:
+    ```js
+    ...
+    <Marker parameters={...}>
+      <Entity animation={{
+        property: 'rotation',
+        to: '0 360 0',
+        dur: '5000',
+        loop: true,
+        }}
+      />
+    </Marker>
+    ...
+    ```
+5. . Run your react apps and have fun
