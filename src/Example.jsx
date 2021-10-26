@@ -2,14 +2,13 @@ import React, { useRef } from 'react';
 import AFrameRenderer from './components/AFrameRenderer';
 import Marker from './components/Marker';
 import Animation from './components/Animation';
-import './App.css';
 import Entity from './components/Entity';
 
 const App = () => {
   const scene = useRef();
 
   return (
-    <div className="App">
+    <div>
       <AFrameRenderer
         arToolKit={{}}
         stats
