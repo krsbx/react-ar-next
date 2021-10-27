@@ -25,17 +25,14 @@ export const locationMode = (value) =>
       position="0 1.6 0"
       id={'react-ar-next-camera'}
     ></a-entity>
-  ) : null;
-
-export const inherentMode = (value) =>
-  value ? (
+  ) : (
     <a-entity
       camera
       look-controls={false}
       position="0 1.6 0"
       id={'react-ar-next-camera'}
     ></a-entity>
-  ) : null;
+  );
 
 export const renderVirtualComponent = (component, container) =>
   ReactDOM.createPortal(component, container);

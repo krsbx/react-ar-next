@@ -1,6 +1,6 @@
 {
   "name": "react-ar-next",
-  "version": "1.0.0-beta2",
+  "version": "1.0.0-beta3",
   "description": "Another React Web AR",
   "main": "src/index.js",
   "keywords": [

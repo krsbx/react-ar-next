@@ -43,7 +43,6 @@ export const rendererPropsType = {
   inherent: PropTypes.bool,
   stats: PropTypes.bool,
   'gesture-detector': PropTypes.bool,
-  markerVisibility: PropTypes.bool,
   gestureHandler: PropTypes.shape(GESTURE_PARAMETER),
 };
 

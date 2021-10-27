@@ -41,6 +41,18 @@ const App = () => {
 
 When `true` it will use a static camera for the AR.
 
+### gesture-detector (WIP)
+**`type`** - `boolean`
+
+When `true` it will enable gesture on the AR.
+
+### gestureHandler (WIP)
+|  Property  |  Type  |  Supported values  |
+| -------- | :----: | ----------------: |
+| `oneFinger` | `callback` | - |
+| `twoFinger` | `callback` | - |
+| `threeFinger` | `callback` | - |
+| `fourFinger` | `callback` | - |
 
 ## `Marker` component properties
 
@@ -74,6 +86,7 @@ When `true` it will use a static camera for the AR.
 | `position` | `string` | - |
 | `scale` | `string` | - |
 | `animation` | `string` | - |
+| `gps-entity-place` | `boolean` | `['true', 'false']` |
 
 ## `Entity` component properties
 
@@ -86,7 +99,7 @@ When `true` it will use a static camera for the AR.
 | `animation` | `string` | - |
 | `gltf-model` | `string` | - |
 | `geometry` | `string`| - |
-
+| `gps-entity-place` | `boolean` | `['true', 'false']` |
 
 ### animation
 

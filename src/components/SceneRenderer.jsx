@@ -3,7 +3,6 @@ import {
   prepareToolKitParams,
   passSceneRef,
   locationMode,
-  inherentMode,
 } from '../utils/ARToolKitHandler';
 import { rendererPropsType } from '../utils/PropChecking';
 
@@ -28,10 +27,8 @@ const SceneRenderer = (props) => {
       arjs={prepareToolKitParams(arToolKit)}
       {...rest}
       vr-mode-ui="enabled: false"
-      gesture-detector
     >
       {children}
-      {inherentMode(inherent)}
       {locationMode(geoLocation)}
     </a-scene>
   );
