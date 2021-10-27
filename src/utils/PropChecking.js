@@ -11,6 +11,13 @@ import {
   TRACKING_METHOD,
 } from './constant';
 
+export const GESTURE_PARAMETER = {
+  oneFinger: PropTypes.func, // Usually for rotating
+  twoFinger: PropTypes.func, // Usually for scaling/zooming
+  threeFinger: PropTypes.func, // Custom functions as you want
+  fourFinger: PropTypes.func, // Have fun with this one
+};
+
 export const rendererPropsType = {
   arToolKit: PropTypes.exact({
     detectionMode: PropTypes.oneOf(DETECTION_MODE),
@@ -35,6 +42,9 @@ export const rendererPropsType = {
   geoLocation: PropTypes.bool,
   inherent: PropTypes.bool,
   stats: PropTypes.bool,
+  'gesture-detector': PropTypes.bool,
+  markerVisibility: PropTypes.bool,
+  gestureHandler: PropTypes.shape(GESTURE_PARAMETER),
 };
 
 export const animationPropType = {
