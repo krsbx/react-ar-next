@@ -1,14 +1,30 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { isCustomMarker } from '../utils/MarkerHandler';
 import { markerPropType } from '../utils/PropChecking';
+import { useEventListener } from 'krsbx-hooks';
 
-const Marker = ({ parameters, inherent, children }) => {
+const Marker = ({
+  parameters,
+  onMarkerFound,
+  onMarkerLost,
+  inherent,
+  children,
+}) => {
   isCustomMarker(parameters);
 
+  const markerRef = useRef();
+
+  useEventListener('markerFound', onMarkerFound, markerRef.current);
+  useEventListener('markerLost', onMarkerLost, markerRef.current);
+
   return inherent ? (
-    <a-marker {...parameters}>{children}</a-marker>
+    <a-marker {...parameters} ref={markerRef}>
+      {children}
+    </a-marker>
   ) : (
-    <a-marker-camera {...parameters}>{children}</a-marker-camera>
+    <a-marker-camera {...parameters} ref={markerRef}>
+      {children}
+    </a-marker-camera>
   );
 };
 

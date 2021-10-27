@@ -2,17 +2,22 @@ import React from 'react';
 import {
   prepareToolKitParams,
   passSceneRef,
+  locationMode,
   inherentMode,
 } from '../utils/ARToolKitHandler';
+import { rendererPropsType } from '../utils/PropChecking';
 
-const SceneRenderer = ({
-  arToolKit,
-  getSceneRef,
-  inherent,
-  renderer,
-  children,
-  ...rest
-}) => {
+const SceneRenderer = (props) => {
+  const {
+    arToolKit,
+    getSceneRef,
+    inherent,
+    geoLocation,
+    renderer,
+    children,
+    ...rest
+  } = props;
+
   return (
     <a-scene
       ref={(sceneRef) => {
@@ -24,10 +29,19 @@ const SceneRenderer = ({
       {...rest}
       vr-mode-ui="enabled: false"
     >
-      {inherentMode(inherent)}
       {children}
+      {inherentMode(inherent)}
+      {locationMode(geoLocation)}
     </a-scene>
   );
+};
+
+SceneRenderer.propTypes = rendererPropsType;
+
+SceneRenderer.defaultProps = {
+  arToolKit: {},
+  getSceneRef: () => {},
+  inherent: true,
 };
 
 export default SceneRenderer;
