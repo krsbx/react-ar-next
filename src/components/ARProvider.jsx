@@ -8,6 +8,7 @@ const ARProvider = ({ children }) => {
   const [isVisible, setIsVisible] = useToggle(false);
   const [isRemoved, setIsRemoved] = useToggle(false);
   const markerRef = useRef();
+  const cameraRef = useRef();
 
   const { isLoading: arFrameLoading } = useScript(
     'https://aframe.io/releases/1.2.0/aframe.min.js',
@@ -24,6 +25,10 @@ const ARProvider = ({ children }) => {
       const defaultCamera = document.querySelector('[camera][aframe-injected]');
       defaultCamera?.remove();
 
+      const newCameraRef = document.getElementById('react-ar-next-camera');
+
+      cameraRef.current = newCameraRef;
+
       setIsRemoved();
     }
   }, [arFrameLoading, arLoading]);
@@ -35,6 +40,7 @@ const ARProvider = ({ children }) => {
         isVisible,
         setIsVisible,
         markerRef,
+        cameraRef,
       }}
     >
       {!arFrameLoading && !arLoading && children}

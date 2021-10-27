@@ -1,10 +1,10 @@
-import { useEffect } from 'react';
+import { useARProvider } from '../components/ARProvider';
 
 // Use this element for getting the current active camera
-const useARCamera = (ref) => {
-  useEffect(() => {
-    ref.current = document.getElementById('react-ar-next-camera');
-  }, []);
+const useARCamera = () => {
+  const { cameraRef } = useARProvider();
+
+  return cameraRef.current;
 };
 
 export default useARCamera;

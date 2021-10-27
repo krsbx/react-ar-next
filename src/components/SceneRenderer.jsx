@@ -28,6 +28,7 @@ const SceneRenderer = (props) => {
       arjs={prepareToolKitParams(arToolKit)}
       {...rest}
       vr-mode-ui="enabled: false"
+      gesture-detector
     >
       {children}
       {inherentMode(inherent)}
