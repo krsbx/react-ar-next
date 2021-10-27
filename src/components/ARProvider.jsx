@@ -1,6 +1,5 @@
 import React, { createContext, useContext } from 'react';
-import useScript from '../utils/useScript';
-import useWindowDimension from '../utils/useWindowDimension';
+import { useScript, useWindowDimension } from 'krsbx-hooks';
 
 export const ARContext = createContext();
 

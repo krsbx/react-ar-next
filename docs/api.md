@@ -58,6 +58,11 @@ When `true` it will use a static camera for the AR.
 | `preset` | `string` | `['hiro', 'kanji', 'custom']` |
 | `hit-testing-enabled` | `boolean` | `['true', 'false']` |
 | `hit-testing-renderDebug` | `boolean` | `['true', 'false']` |
+| `onMarkerFound` | `callback` | - |
+| `onMarkerLost` | `callback` | - |
+| `smoothCount` | `callback` | - |
+| `smoothTolerance` | `callback` | - |
+| `smoothThreshold` | `callback` | - |
 
 
 ## `Box` component properties

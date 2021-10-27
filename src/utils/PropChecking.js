@@ -32,6 +32,7 @@ export const rendererPropsType = {
     debugUIEnabled: PropTypes.bool,
   }),
   getSceneRef: PropTypes.func,
+  geoLocation: PropTypes.bool,
   inherent: PropTypes.bool,
   stats: PropTypes.bool,
 };
@@ -42,7 +43,7 @@ export const animationPropType = {
   to: PropTypes.string,
   delay: PropTypes.number,
   dir: PropTypes.oneOf(ANIMATION_DIRECTIONS),
-  dur: PropTypes.number,
+  dur: PropTypes.string,
   easing: PropTypes.oneOf(ANIMATION_EASING),
   elasticity: PropTypes.number,
   loop: PropTypes.bool,
@@ -64,6 +65,11 @@ export const markerPropType = {
     markerhelpers: PropTypes.bool,
     'hit-testing-enabled': PropTypes.bool,
     'hit-testing-renderDebug': PropTypes.bool,
+    onMarkerFound: PropTypes.func,
+    onMarkerLost: PropTypes.func,
+    smoothCount: PropTypes.number,
+    smoothTolerance: PropTypes.number,
+    smoothThreshold: PropTypes.number,
   }),
   inherent: PropTypes.bool,
 };
@@ -74,6 +80,7 @@ export const boxPropType = {
   position: PropTypes.string,
   scale: PropTypes.string,
   animation: PropTypes.shape(animationPropType),
+  'gps-entity-place': PropTypes.string,
 };
 
 export const entityPropType = _.assign(boxPropType, {

@@ -15,6 +15,9 @@ export const prepareToolKitParams = (parameters) => {
 
 export const passSceneRef = (getSceneRef, ref) => getSceneRef(ref) || ref;
 
+export const locationMode = (value) =>
+  value ? <a-camera gps-camera rotation-reader /> : null;
+
 export const inherentMode = (value) => (value ? <a-camera-static /> : null);
 
 export const renderVirtualComponent = (component, container) =>
