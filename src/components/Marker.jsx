@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { isCustomMarker } from '../utils/MarkerHandler';
 import { markerPropType } from '../utils/PropChecking';
 import { useEventListener } from 'krsbx-hooks';
+import { useARProvider } from './ARProvider';
 
 const Marker = ({
   parameters,
@@ -10,12 +11,26 @@ const Marker = ({
   inherent,
   children,
 }) => {
+  const { setIsVisible, markerRef } = useARProvider();
+
   isCustomMarker(parameters);
 
-  const markerRef = useRef();
-
-  useEventListener('markerFound', onMarkerFound, markerRef.current);
-  useEventListener('markerLost', onMarkerLost, markerRef.current);
+  useEventListener(
+    'markerFound',
+    () => {
+      !!onMarkerFound && onMarkerFound();
+      setIsVisible(true);
+    },
+    markerRef.current
+  );
+  useEventListener(
+    'markerLost',
+    () => {
+      !!onMarkerLost && onMarkerLost();
+      setIsVisible(false);
+    },
+    markerRef.current
+  );
 
   return inherent ? (
     <a-marker {...parameters} ref={markerRef}>
