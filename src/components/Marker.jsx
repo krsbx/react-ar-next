@@ -12,7 +12,7 @@ const Marker = ({
   children,
 }) => {
   const { setIsVisible, markerRef } = useARProvider();
-  const thisMarker = useRef();
+  const thisMarkerRef = useRef();
 
   !!parameters && isCustomMarker(parameters);
 
