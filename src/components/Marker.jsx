@@ -12,24 +12,27 @@ const Marker = ({
   children,
 }) => {
   const { setIsVisible, markerRef } = useARProvider();
+  const thisMarker = useRef();
 
-  isCustomMarker(parameters);
+  !!parameters && isCustomMarker(parameters);
 
   useEventListener(
     'markerFound',
     () => {
       !!onMarkerFound && onMarkerFound();
+      markerRef.current = thisMarkerRef.current;
       setIsVisible(true);
     },
-    markerRef.current
+    thisMarkerRef.current
   );
   useEventListener(
     'markerLost',
     () => {
       !!onMarkerLost && onMarkerLost();
+      markerRef.current = null;
       setIsVisible(false);
     },
-    markerRef.current
+    thisMarkerRef.current
   );
 
   return inherent ? (

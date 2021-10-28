@@ -1,4 +1,4 @@
-## Important Note
+## Installation
 
 * Install `react-ar-next`
 
