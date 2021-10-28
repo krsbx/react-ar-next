@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useRef } from 'react';
 import { useScript, useWindowDimension, useToggle } from 'krsbx-hooks';
+import 'aframe';
 
 export const ARContext = createContext();
 
@@ -10,18 +11,11 @@ const ARProvider = ({ children }) => {
   const markerRef = useRef();
   const cameraRef = useRef();
 
-  const { isLoading: arFrameLoading } = useScript(
-    'https://aframe.io/releases/1.2.0/aframe.min.js',
-    'head'
-  );
-  const { isLoading: arLoading } = useScript(
-    'https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js',
-    'head'
-  );
+  const { isLoading: arLoading } = useScript('./aframe-ar.js', 'head');
 
   // Remove Default Camera
   useEffect(() => {
-    if (!isRemoved && !arFrameLoading && !arLoading) {
+    if (!isRemoved && !arLoading) {
       const defaultCamera = document.querySelector('[camera][aframe-injected]');
       defaultCamera?.remove();
 
@@ -31,7 +25,7 @@ const ARProvider = ({ children }) => {
 
       setIsRemoved();
     }
-  }, [arFrameLoading, arLoading]);
+  }, [arLoading]);
 
   return (
     <ARContext.Provider
@@ -43,7 +37,7 @@ const ARProvider = ({ children }) => {
         cameraRef,
       }}
     >
-      {!arFrameLoading && !arLoading && children}
+      {!arLoading && children}
     </ARContext.Provider>
   );
 };

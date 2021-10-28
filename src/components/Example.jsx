@@ -18,7 +18,7 @@ const Example = () => {
             material="color: red"
             gltf-model="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf"
             scale="0.02 0.02 0.02"
-            position="0 0 -1"
+            position="0 0 0"
             animation={{
               property: 'rotation',
               to: '0 360 0',
