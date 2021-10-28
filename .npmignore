@@ -1,0 +1,8 @@
+/build
+/node_modules
+/public
+/src
+babel.config.js
+package.original.json
+package-lock.json
+.env
