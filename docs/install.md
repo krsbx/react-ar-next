@@ -11,8 +11,8 @@ npm i react-ar-next
 1. Download the newest version of AR Js [here](https://github.com/AR-js-org/AR.js/blob/master/aframe/build/aframe-ar.js)
 2. Make sure the downloaded file are named as `aframe-ar.js`
 3. Put `aframe-ar.js` into your public folder
-4. So the structures of your public folder might look like this
-   ![Public folder structures](structures.jpg)
+4. So the structures of your public folder might look like this\
+![Public folder structures](structures.jpg)
 
 * After Installation
 
