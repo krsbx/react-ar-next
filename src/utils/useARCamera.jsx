@@ -1,9 +1,10 @@
-import { useEventListener } from 'krsbx-hooks';
+import { useARProvider } from '../components/ARProvider';
 
-const useARCamera = (ref) => {
-  useEventListener('load', () => {
-    ref.current = document.querySelector('[camera]');
-  });
+// Use this element for getting the current active camera
+const useARCamera = () => {
+  const { cameraRef } = useARProvider();
+
+  return cameraRef.current;
 };
 
 export default useARCamera;

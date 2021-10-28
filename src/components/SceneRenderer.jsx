@@ -3,7 +3,6 @@ import {
   prepareToolKitParams,
   passSceneRef,
   locationMode,
-  inherentMode,
 } from '../utils/ARToolKitHandler';
 import { rendererPropsType } from '../utils/PropChecking';
 
@@ -30,7 +29,6 @@ const SceneRenderer = (props) => {
       vr-mode-ui="enabled: false"
     >
       {children}
-      {inherentMode(inherent)}
       {locationMode(geoLocation)}
     </a-scene>
   );

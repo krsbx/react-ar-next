@@ -5,6 +5,7 @@ import Entity from './components/Entity';
 import Example from './components/Example';
 import Marker from './components/Marker';
 import SceneRenderer from './components/SceneRenderer';
+import useARCamera from './utils/useARCamera';
 
 export {
   AFrameRenderer,
@@ -14,4 +15,5 @@ export {
   Example,
   Marker,
   SceneRenderer,
+  useARCamera,
 };
