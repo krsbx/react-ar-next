@@ -1,6 +1,6 @@
 {
   "name": "react-ar-next",
-  "version": "1.0.0-beta5",
+  "version": "1.0.0-beta6",
   "description": "Another React Web AR",
   "main": "dist/index.js",
   "keywords": [
@@ -20,6 +20,7 @@
   "bugs": {
     "url": "https://github.com/krsbx/react-ar-next/issues"
   },
+  "types": "index.d.ts",
   "dependencies": {
     "krsbx-hooks": "^1.0.5",
     "lodash": "^4.17.21",
