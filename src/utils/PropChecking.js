@@ -21,7 +21,7 @@ export const GESTURE_PARAMETER = {
 export const rendererPropsType = {
   arToolKit: PropTypes.exact({
     detectionMode: PropTypes.oneOf(DETECTION_MODE),
-    matrixCodeType: PropTypes.instanceOf(MATRIX_CODE_TYPE),
+    matrixCodeType: PropTypes.oneOf(MATRIX_CODE_TYPE),
     cameraParametersUrl: PropTypes.string,
     maxDetectionRate: PropTypes.number,
 
@@ -74,12 +74,12 @@ export const markerPropType = {
     markerhelpers: PropTypes.bool,
     'hit-testing-enabled': PropTypes.bool,
     'hit-testing-renderDebug': PropTypes.bool,
-    onMarkerFound: PropTypes.func,
-    onMarkerLost: PropTypes.func,
     smoothCount: PropTypes.number,
     smoothTolerance: PropTypes.number,
     smoothThreshold: PropTypes.number,
   }),
+  onMarkerFound: PropTypes.func,
+  onMarkerLost: PropTypes.func,
   inherent: PropTypes.bool,
 };
 

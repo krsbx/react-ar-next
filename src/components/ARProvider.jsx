@@ -11,7 +11,7 @@ const ARProvider = ({ children }) => {
   const markerRef = useRef();
   const cameraRef = useRef();
 
-  const { isLoading: arLoading } = useScript('./aframe-ar.js', 'head');
+  const { isLoading: arLoading } = useScript('./aframe-ar.js', document.head);
 
   // Remove Default Camera
   useEffect(() => {

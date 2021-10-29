@@ -11,7 +11,7 @@ const AFrameRenderer = (props) => {
   const container = document.body;
   const renderer = useRef();
 
-  useGesture(!!gestureHandler && gestureHandler);
+  !!gestureHandler && useGesture(gestureHandler);
 
   return renderVirtualComponent(
     <SceneRenderer
