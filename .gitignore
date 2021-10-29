@@ -26,5 +26,6 @@ yarn-error.log*
 package.original.json
 package-lock.json
 
-src/index.jsx
+index.jsx
+index.tsx
 /public
