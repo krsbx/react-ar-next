@@ -21,7 +21,6 @@
     "url": "https://github.com/krsbx/react-ar-next/issues"
   },
   "dependencies": {
-    "aframe": "^1.2.0",
     "krsbx-hooks": "^1.0.5",
     "lodash": "^4.17.21",
     "prop-types": "^15.7.2"
