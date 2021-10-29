@@ -11,6 +11,8 @@ var _reactDom = _interopRequireDefault(require("react-dom"));
 
 var _constant = require("./constant");
 
+var _jsxRuntime = require("react/jsx-runtime");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var prepareToolKitParams = function prepareToolKitParams(parameters) {
@@ -32,14 +34,14 @@ var passSceneRef = function passSceneRef(getSceneRef, ref) {
 exports.passSceneRef = passSceneRef;
 
 var locationMode = function locationMode(value) {
-  return value ? /*#__PURE__*/React.createElement("a-entity", {
+  return value ? /*#__PURE__*/(0, _jsxRuntime.jsx)("a-entity", {
     camera: true,
     "gps-camera": true,
     "rotation-reader": true,
     "look-controls": false,
     position: "0 1.6 0",
     id: 'react-ar-next-camera'
-  }) : /*#__PURE__*/React.createElement("a-entity", {
+  }) : /*#__PURE__*/(0, _jsxRuntime.jsx)("a-entity", {
     camera: true,
     "look-controls": false,
     position: "0 1.6 0",

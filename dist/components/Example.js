@@ -15,6 +15,8 @@ var _Marker = _interopRequireDefault(require("./Marker"));
 
 var _Entity = _interopRequireDefault(require("./Entity"));
 
+var _jsxRuntime = require("react/jsx-runtime");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -23,28 +25,32 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
 
 var Example = function Example() {
   var scene = (0, _react.useRef)();
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_AFrameRenderer.default, {
-    arToolKit: {},
-    stats: true,
-    getSceneRef: function getSceneRef(ref) {
-      return scene.current = ref;
-    }
-  }, /*#__PURE__*/_react.default.createElement(_Marker.default, {
-    parameters: {
-      preset: 'hiro'
-    }
-  }, /*#__PURE__*/_react.default.createElement(_Entity.default, {
-    material: "color: red",
-    "gltf-model": "https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf",
-    scale: "0.02 0.02 0.02",
-    position: "0 0 0",
-    animation: {
-      property: 'rotation',
-      to: '0 360 0',
-      dur: '5000',
-      loop: true
-    }
-  }))));
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+    children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_AFrameRenderer.default, {
+      arToolKit: {},
+      stats: true,
+      getSceneRef: function getSceneRef(ref) {
+        return scene.current = ref;
+      },
+      children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_Marker.default, {
+        parameters: {
+          preset: 'hiro'
+        },
+        children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_Entity.default, {
+          material: "color: red",
+          "gltf-model": "https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf",
+          scale: "0.02 0.02 0.02",
+          position: "0 0 0",
+          animation: {
+            property: 'rotation',
+            to: '0 360 0',
+            dur: '5000',
+            loop: true
+          }
+        })
+      })
+    })
+  });
 };
 
 var _default = Example;
