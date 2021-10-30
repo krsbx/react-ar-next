@@ -8,6 +8,11 @@ import {
   MARKER_TYPE,
   MATRIX_CODE_TYPE,
   SOURCE_TYPE,
+  TEXT_ALIGN,
+  TEXT_ANCHOR,
+  TEXT_BASE_LINE,
+  TEXT_SIDE,
+  TEXT_WHITESPACE,
   TRACKING_METHOD,
 } from './constant';
 
@@ -95,4 +100,31 @@ export const boxPropType = {
 export const entityPropType = _.assign(boxPropType, {
   'gltf-model': PropTypes.string,
   geometry: PropTypes.string,
+  rotation: PropTypes.string,
+  visible: PropTypes.bool,
 });
+
+export const textPropType = {
+  align: PropTypes.oneOf(TEXT_ALIGN),
+  'alpha-test': PropTypes.number,
+  anchor: PropTypes.oneOf(TEXT_ANCHOR),
+  baseline: PropTypes.oneOf(TEXT_BASE_LINE),
+  color: PropTypes.string,
+  font: PropTypes.string,
+  'font-image': PropTypes.string,
+  height: PropTypes.number,
+  'letter-spacing': PropTypes.number,
+  'line-height': PropTypes.number,
+  opacity: PropTypes.number,
+  rotation: PropTypes.string,
+  shader: PropTypes.string,
+  side: PropTypes.oneOf(TEXT_SIDE),
+  'tab-size': PropTypes.number,
+  transparent: PropTypes.bool,
+  value: PropTypes.string,
+  'white-space': PropTypes.oneOf(TEXT_WHITESPACE),
+  width: PropTypes.number,
+  'wrap-count': PropTypes.number,
+  'wrap-pixels': PropTypes.number,
+  'z-offset': PropTypes.number,
+};

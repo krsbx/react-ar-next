@@ -36,11 +36,11 @@ const Marker = ({
   );
 
   return inherent ? (
-    <a-marker {...parameters} ref={markerRef}>
+    <a-marker {...parameters} ref={thisMarkerRef}>
       {children}
     </a-marker>
   ) : (
-    <a-marker-camera {...parameters} ref={markerRef}>
+    <a-marker-camera {...parameters} ref={thisMarkerRef}>
       {children}
     </a-marker-camera>
   );

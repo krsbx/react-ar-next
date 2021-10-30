@@ -101,3 +101,38 @@ export const ANIMATION_PROPERTIES = [
   'autoplay',
   'enabled',
 ];
+
+export const TEXT_PROPERTIES = [
+  'align',
+  'alpha-test',
+  'anchor',
+  'baseline',
+  'color',
+  'font',
+  'font-image',
+  'height',
+  'letter-spacing',
+  'line-height',
+  'rotation',
+  'opacity',
+  'shader',
+  'side',
+  'tab-size',
+  'transparent',
+  'value',
+  'white-space',
+  'width',
+  'wrap-count',
+  'wrap-pixels',
+  'z-offset',
+];
+
+export const TEXT_ALIGN = ['left', 'center', 'right'];
+
+export const TEXT_ANCHOR = _.concat(TEXT_ALIGN, ['align']);
+
+export const TEXT_BASE_LINE = ['top', 'center', 'bottom'];
+
+export const TEXT_SIDE = ['front', 'back', 'double'];
+
+export const TEXT_WHITESPACE = ['normal', 'pre', 'nowrap'];

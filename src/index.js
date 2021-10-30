@@ -6,6 +6,8 @@ import Example from './components/Example';
 import Marker from './components/Marker';
 import SceneRenderer from './components/SceneRenderer';
 import useARCamera from './utils/useARCamera';
+import useARDistance from './utils/useARDistance';
+import useARMarker from './utils/useARMarker';
 
 export {
   AFrameRenderer,
@@ -16,4 +18,6 @@ export {
   Marker,
   SceneRenderer,
   useARCamera,
+  useARDistance,
+  useARMarker,
 };

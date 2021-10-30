@@ -1,6 +1,6 @@
 import { useARProvider } from '../components/ARProvider';
 
-// Use this element for getting the current active camera
+// Use this hooks for getting the current active camera
 const useARCamera = () => {
   const { cameraRef } = useARProvider();
 
