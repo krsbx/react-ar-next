@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
-import { isCustomMarker } from '../utils/MarkerHandler';
-import { markerPropType } from '../utils/PropChecking';
+import { isCustomMarker } from '../utils/markerHandler';
+import { markerPropType } from '../utils/propChecking';
 import { useEventListener } from 'krsbx-hooks';
 import { useARProvider } from './ARProvider';
 

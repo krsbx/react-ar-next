@@ -3,8 +3,8 @@ import {
   prepareToolKitParams,
   passSceneRef,
   locationMode,
-} from '../utils/ARToolKitHandler';
-import { rendererPropsType } from '../utils/PropChecking';
+} from '../utils/arToolKitHandler';
+import { rendererPropsType } from '../utils/propChecking';
 
 const SceneRenderer = (props) => {
   const {
