@@ -9,7 +9,5 @@ export const propsConverter = (props) => {
     }
   });
 
-  console.log(props);
-
   return props;
 };

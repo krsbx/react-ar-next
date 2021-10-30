@@ -23,7 +23,7 @@ export const GESTURE_PARAMETER = {
   fourFinger: PropTypes.func, // Have fun with this one
 };
 
-export const rendererPropsType = {
+export const rendererPropType = {
   arToolKit: PropTypes.shape({
     detectionMode: PropTypes.oneOf(DETECTION_MODE),
     matrixCodeType: PropTypes.oneOf(MATRIX_CODE_TYPE),
@@ -50,6 +50,11 @@ export const rendererPropsType = {
   'gesture-detector': PropTypes.bool,
   gestureHandler: PropTypes.shape(GESTURE_PARAMETER),
 };
+
+export const aframeRenderPropType = _.assign(rendererPropType, {
+  onError: PropTypes.func,
+  onInit: PropTypes.func,
+});
 
 export const axisPropType = {
   x: PropTypes.number,
