@@ -19,7 +19,7 @@ export const GESTURE_PARAMETER = {
 };
 
 export const rendererPropsType = {
-  arToolKit: PropTypes.exact({
+  arToolKit: PropTypes.shape({
     detectionMode: PropTypes.oneOf(DETECTION_MODE),
     matrixCodeType: PropTypes.oneOf(MATRIX_CODE_TYPE),
     cameraParametersUrl: PropTypes.string,
