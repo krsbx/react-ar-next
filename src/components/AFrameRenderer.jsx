@@ -1,8 +1,8 @@
 import _ from 'lodash';
 import React, { useRef } from 'react';
-import { renderVirtualComponent } from '../utils/ARToolKitHandler';
+import { renderVirtualComponent } from '../utils/arToolKitHandler';
 import SceneRenderer from './SceneRenderer';
-import { rendererPropsType } from '../utils/PropChecking';
+import { rendererPropsType } from '../utils/propChecking';
 import useGesture from '../utils/useGesture';
 import useDistanceSubscriber from '../utils/useDistanceSubscriber';
 
