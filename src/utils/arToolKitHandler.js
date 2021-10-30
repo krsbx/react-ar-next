@@ -17,21 +17,9 @@ export const passSceneRef = (getSceneRef, ref) => getSceneRef(ref) || ref;
 
 export const locationMode = (value) =>
   value ? (
-    <a-entity
-      camera
-      gps-camera
-      rotation-reader
-      look-controls={false}
-      position="0 1.6 0"
-      id={'react-ar-next-camera'}
-    ></a-entity>
+    <a-camera gps-camera rotation-reader id={'react-ar-next-camera'}></a-camera>
   ) : (
-    <a-entity
-      camera
-      look-controls={false}
-      position="0 1.6 0"
-      id={'react-ar-next-camera'}
-    ></a-entity>
+    <a-entity camera position="0 1.6 0" id={'react-ar-next-camera'}></a-entity>
   );
 
 export const renderVirtualComponent = (component, container) =>

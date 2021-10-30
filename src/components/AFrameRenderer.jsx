@@ -2,12 +2,13 @@ import _ from 'lodash';
 import React, { useRef } from 'react';
 import { renderVirtualComponent } from '../utils/arToolKitHandler';
 import SceneRenderer from './SceneRenderer';
-import { rendererPropsType } from '../utils/propChecking';
+import { aframeRenderPropType } from '../utils/propChecking';
 import useGesture from '../utils/useGesture';
 import useDistanceSubscriber from '../utils/useDistanceSubscriber';
+import { useEventListener } from 'krsbx-hooks';
 
 const AFrameRenderer = (props) => {
-  const { gestureHandler } = props;
+  const { gestureHandler, onError, onInit } = props;
 
   const container = document.body;
   const renderer = useRef();
@@ -16,6 +17,24 @@ const AFrameRenderer = (props) => {
 
   // Add event listner for get distance between marker and camera
   useDistanceSubscriber();
+
+  // On camera cant be initialize
+  useEventListener('camera-error', () => {
+    !!onError && onError();
+
+    console.error("Camera can't be initialize!");
+  });
+
+  // On camera can be initialize
+  useEventListener('camera-init', () => {
+    !!onInit && onInit();
+
+    console.log('Camera successfulyy initialized!');
+  });
+
+  useEventListener('gps-entity-place-added', () => {
+    console.log('Geolocation objects added!');
+  });
 
   return renderVirtualComponent(
     <SceneRenderer
@@ -26,7 +45,7 @@ const AFrameRenderer = (props) => {
   );
 };
 
-AFrameRenderer.propTypes = rendererPropsType;
+AFrameRenderer.propTypes = aframeRenderPropType;
 
 AFrameRenderer.defaultProps = {
   arToolKit: {},

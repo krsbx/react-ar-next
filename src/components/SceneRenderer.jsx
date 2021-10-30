@@ -4,7 +4,7 @@ import {
   passSceneRef,
   locationMode,
 } from '../utils/arToolKitHandler';
-import { rendererPropsType } from '../utils/propChecking';
+import { rendererPropType } from '../utils/propChecking';
 
 const SceneRenderer = (props) => {
   const {
@@ -34,7 +34,7 @@ const SceneRenderer = (props) => {
   );
 };
 
-SceneRenderer.propTypes = rendererPropsType;
+SceneRenderer.propTypes = rendererPropType;
 
 SceneRenderer.defaultProps = {
   arToolKit: {},
