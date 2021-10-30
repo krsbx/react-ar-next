@@ -80,13 +80,19 @@ declare module 'react-ar-next' {
     renderer: any;
   }
 
+  interface axisInterface {
+    x: Number;
+    y: Number;
+    z: Number;
+  }
+
   interface animationInterface {
     property?: String;
     from?: String;
-    to?: String;
-    delay?: String;
+    to?: axisInterface;
+    delay?: Number;
     dir?: 'normal' | 'alternate' | 'reverse';
-    dur?: String;
+    dur?: Number;
     easing?:
       | 'easeInQuad'
       | 'easeOutQuad'
@@ -116,7 +122,7 @@ declare module 'react-ar-next' {
       | 'easeOutElastic'
       | 'easeInOutElastic'
       | 'linear';
-    elasticity?: String;
+    elasticity?: Number;
     loop?: Boolean;
     round?: Boolean;
     autoplay?: Boolean;
@@ -126,8 +132,9 @@ declare module 'react-ar-next' {
   interface boxInterface {
     color?: string;
     material?: string;
-    position?: string;
-    scale?: string;
+    position?: axisInterface;
+    scale?: axisInterface;
+    rotation?: axisInterface;
     animation?: animationInterface;
     'gps-entity-place'?: string;
   }
@@ -135,6 +142,32 @@ declare module 'react-ar-next' {
   interface entityInterface extends boxInterface {
     'gltf-model'?: string;
     geometry?: string;
+    visible?: boolean;
+  }
+
+  interface textInterface {
+    align?: 'left' | 'center' | 'right';
+    'alpha-test'?: Number;
+    anchor?: 'left' | 'center' | 'right' | 'align';
+    baseline?: 'top' | 'center' | 'bottom';
+    color?: String;
+    font?: String;
+    'font-image'?: String;
+    height?: Number;
+    'letter-spacing'?: Number;
+    'line-height'?: Number;
+    opacity?: Number;
+    rotation?: axisInterface;
+    shader?: String;
+    side?: 'front' | 'back' | 'double';
+    'tab-size'?: Number;
+    transparent?: Boolean;
+    value?: PropTypes.string;
+    'white-space'?: 'normal' | 'pre' | 'nowrap';
+    width?: Number;
+    'wrap-count'?: Number;
+    'wrap-pixels'?: Number;
+    'z-offset'?: Number;
   }
 
   class AFrameRenderer extends React.Component<rendererInterface, any> {}
@@ -144,5 +177,9 @@ declare module 'react-ar-next' {
   class Example extends React.Component<any, any> {}
   class Marker extends React.Component<markerInterface, any> {}
   class SceneRenderer extends React.Component<sceneInterface, any> {}
+  class Text extends React.Component<textInterface, any> {}
+
   function useARCamera(): any;
+  function useARDistance(): Number;
+  function useARMarker(): any;
 }

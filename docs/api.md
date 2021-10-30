@@ -70,12 +70,17 @@ When `true` it will enable gesture on the AR.
 | `preset` | `string` | `['hiro', 'kanji', 'custom']` |
 | `hit-testing-enabled` | `boolean` | `['true', 'false']` |
 | `hit-testing-renderDebug` | `boolean` | `['true', 'false']` |
-| `onMarkerFound` | `callback` | - |
-| `onMarkerLost` | `callback` | - |
 | `smoothCount` | `callback` | - |
 | `smoothTolerance` | `callback` | - |
 | `smoothThreshold` | `callback` | - |
 
+### onMarkerFound
+
+Receive callback when marker found
+
+### onMarkerLost
+
+Receive callback when marker lost
 
 ## `Box` component properties
 
@@ -83,9 +88,9 @@ When `true` it will enable gesture on the AR.
 | -------- | :----: | ----------------: |
 | `color` | `string` | - |
 | `material` | `string` | - |
-| `position` | `string` | - |
-| `scale` | `string` | - |
-| `animation` | `string` | - |
+| `position` | `{ x: number, y: number, z: number }` | - |
+| `scale` | `{ x: number, y: number, z: number }` | - |
+| `animation` | `{ x: number, y: number, z: number }` | - |
 | `gps-entity-place` | `boolean` | `['true', 'false']` |
 
 ## `Entity` component properties
@@ -108,7 +113,7 @@ Both Entity and Box component support using an animation
 |  Property  |  Type  |  Supported values  |
 | -------- | :----: | ----------------: |
 | `property` | `string` | - |
-| `to` | `string` | - |
+| `to` | `{ x: number, y: number, z: number }` | - |
 | `delay` | `number (ms)` | - |
 | `dir` | `string` | `['normal', 'alternate', 'reverse']` | 
 | `dur` | `number (ms)` | - |
@@ -123,3 +128,31 @@ Both Entity and Box component support using an animation
 ## SceneRenderer component
 
 Do not touch this component, just pass the props that it need through the AFrameRenderer
+
+
+## `Text` component properties
+
+|  Property  |  Type  |  Supported values  |
+| -------- | :----: | ----------------: |
+| `align` | `string` | `['left', 'center', 'right']` |
+| `alpha-test` | `number` | - |
+| `anchor` | `string` | `['left', 'center', 'right', 'align']` |
+| `baseline` | `string` | `['top', 'center', 'bottom']` |
+| `color` | `string` | - |
+| `font` | `string` | - |
+| `font-image` | `string` | - |
+| `height` | `number` | - |
+| `letter-spacing` | `number` | - |
+| `line-height` | `number` | - |
+| `opacity` | `number` | - |
+| `rotation` | `{ x: number, y: number, z: number }` | - |
+| `shader` | `string` | - |
+| `side` | `string` | `['front', 'back', 'double']` |
+| `tab-size` | `number` | - |
+| `transparent` | `boolean` | `['true', 'false']` |
+| `value` | `string` | - |
+| `white-space` | `string` | `['normal', 'pre', 'nowrap']`,
+| `width` | `number` | - |
+| `wrap-count` | `number` | - |
+| `wrap-pixels` | `number` | - |
+| `z-offset` | `number` | - |
