@@ -9,6 +9,7 @@ export const ARContext = createContext({
   },
   isVisible: false,
   setIsVisible: () => {},
+  distance: null,
   markerRef: null,
   cameraRef: null,
 });
@@ -17,6 +18,7 @@ const ARProvider = ({ children }) => {
   const windowSize = useWindowDimension();
   const [isVisible, setIsVisible] = useToggle(false);
   const [isRemoved, setIsRemoved] = useToggle(false);
+  const distance = useRef();
   const markerRef = useRef();
   const cameraRef = useRef();
 
@@ -42,6 +44,7 @@ const ARProvider = ({ children }) => {
         windowSize: windowSize,
         isVisible,
         setIsVisible,
+        distance,
         markerRef,
         cameraRef,
       }}
