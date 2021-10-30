@@ -7,3 +7,4 @@ package.original.json
 package-lock.json
 .env
 index.jsx
+index.tsx

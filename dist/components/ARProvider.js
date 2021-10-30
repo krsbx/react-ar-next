@@ -11,6 +11,8 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _krsbxHooks = require("krsbx-hooks");
 
+require("aframe");
+
 var _jsxRuntime = require("react/jsx-runtime");
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -29,7 +31,16 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var ARContext = /*#__PURE__*/(0, _react.createContext)();
+var ARContext = /*#__PURE__*/(0, _react.createContext)({
+  windowSize: {
+    width: 0,
+    height: 0
+  },
+  isVisible: false,
+  setIsVisible: function setIsVisible() {},
+  markerRef: null,
+  cameraRef: null
+});
 exports.ARContext = ARContext;
 
 var ARProvider = function ARProvider(_ref) {
@@ -49,15 +60,12 @@ var ARProvider = function ARProvider(_ref) {
   var markerRef = (0, _react.useRef)();
   var cameraRef = (0, _react.useRef)();
 
-  var _useScript = (0, _krsbxHooks.useScript)('https://aframe.io/releases/1.2.0/aframe.min.js', document.head),
-      arFrameLoading = _useScript.isLoading;
-
-  var _useScript2 = (0, _krsbxHooks.useScript)('./aframe-ar.js', document.head),
-      arLoading = _useScript2.isLoading; // Remove Default Camera
+  var _useScript = (0, _krsbxHooks.useScript)('./aframe-ar.js', document.head),
+      arLoading = _useScript.isLoading; // Remove Default Camera
 
 
   (0, _react.useEffect)(function () {
-    if (!isRemoved && !arFrameLoading && !arLoading) {
+    if (!isRemoved && !arLoading) {
       var defaultCamera = document.querySelector('[camera][aframe-injected]');
       defaultCamera === null || defaultCamera === void 0 ? void 0 : defaultCamera.remove();
       var newCameraRef = document.getElementById('react-ar-next-camera');
@@ -73,7 +81,7 @@ var ARProvider = function ARProvider(_ref) {
       markerRef: markerRef,
       cameraRef: cameraRef
     },
-    children: !arFrameLoading && !arLoading && children
+    children: !arLoading && children
   });
 };
 

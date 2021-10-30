@@ -1,6 +1,6 @@
 {
   "name": "react-ar-next",
-  "version": "1.0.5",
+  "version": "1.0.1",
   "description": "Another React Web AR",
   "main": "dist/index.js",
   "keywords": [
