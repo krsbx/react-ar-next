@@ -14,10 +14,9 @@ This component need to be on the top level before you use AFrameRenderer or any 
 
 This component will generate a new scene for the Augmented Reality
 
-
 ### `Box`
 
-This component is a primative element in [AFrame](https://aframe.io/docs/1.2.0/primitives/a-box.html)
+This component is a primitive box element in [AFrame](https://aframe.io/docs/1.2.0/primitives/a-box.html)
 
 ### `Entity`
 
@@ -26,6 +25,10 @@ This component is an entity element in [AFrame](https://aframe.io/docs/1.2.0/cor
 ### `Marker`
 
 This component is a marker object in [AR Js](https://ar-js-org.github.io/AR.js-Docs/marker-based/)
+
+### `Text`
+
+This component is a primitive text element in [AFrame](https://aframe.io/docs/1.2.0/primitives/a-text.html)
 
 ### `Example`
 
@@ -38,3 +41,7 @@ You can read more about the installation in the installation [here](/docs/instal
 ## Usage and Implementations
 
 You can find the detailed documentations of the usage [here](/docs/usage.md)
+
+## Changelog
+
+You can find changelogs of the project [here](docs/changelog.md)
