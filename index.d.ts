@@ -162,7 +162,7 @@ declare module 'react-ar-next' {
     side?: 'front' | 'back' | 'double';
     'tab-size'?: Number;
     transparent?: Boolean;
-    value?: PropTypes.string;
+    value?: String;
     'white-space'?: 'normal' | 'pre' | 'nowrap';
     width?: Number;
     'wrap-count'?: Number;
