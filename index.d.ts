@@ -88,8 +88,8 @@ declare module 'react-ar-next' {
 
   interface animationInterface {
     property?: String;
-    from?: String;
-    to?: axisInterface;
+    from?: axisInterface | String;
+    to?: axisInterface | String;
     delay?: Number;
     dir?: 'normal' | 'alternate' | 'reverse';
     dur?: Number;
@@ -135,7 +135,7 @@ declare module 'react-ar-next' {
     position?: axisInterface;
     scale?: axisInterface;
     rotation?: axisInterface;
-    animation?: animationInterface;
+    animation?: animationInterface | animationInterface[];
     'gps-entity-place'?: string;
   }
 

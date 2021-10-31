@@ -10,7 +10,7 @@ const Box = (props) => {
   return (
     <a-box
       {...propsConverter(_.omit(props, ['children', 'animation']))}
-      animation={animation}
+      {...animation}
     >
       {props.children}
     </a-box>
