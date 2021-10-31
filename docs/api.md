@@ -90,7 +90,7 @@ Receive callback when marker lost
 | `material` | `string` | - |
 | `position` | `{ x: number, y: number, z: number }` | - |
 | `scale` | `{ x: number, y: number, z: number }` | - |
-| `animation` | `{ x: number, y: number, z: number }` | - |
+| `rotation` | `{ x: number, y: number, z: number }` | - |
 | `gps-entity-place` | `boolean` | `['true', 'false']` |
 
 ## `Entity` component properties
@@ -101,10 +101,10 @@ Receive callback when marker lost
 | `material` | `string` | - |
 | `position` | `string` | - |
 | `scale` | `string` | - |
-| `animation` | `string` | - |
+| `rotation` | `{ x: number, y: number, z: number }` | - |
+| `gps-entity-place` | `boolean` | `['true', 'false']` |
 | `gltf-model` | `string` | - |
 | `geometry` | `string`| - |
-| `gps-entity-place` | `boolean` | `['true', 'false']` |
 
 ### animation
 
@@ -113,7 +113,8 @@ Both Entity and Box component support using an animation
 |  Property  |  Type  |  Supported values  |
 | -------- | :----: | ----------------: |
 | `property` | `string` | - |
-| `to` | `{ x: number, y: number, z: number }` | - |
+| `from` | `string | { x: number, y: number, z: number }` | - |
+| `to` | `string | { x: number, y: number, z: number }` | - |
 | `delay` | `number (ms)` | - |
 | `dir` | `string` | `['normal', 'alternate', 'reverse']` | 
 | `dur` | `number (ms)` | - |

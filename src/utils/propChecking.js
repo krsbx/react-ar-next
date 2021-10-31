@@ -56,16 +56,16 @@ export const aframeRenderPropType = _.assign(rendererPropType, {
   onInit: PropTypes.func,
 });
 
-export const axisPropType = {
+export const axisPropType = PropTypes.shape({
   x: PropTypes.number,
   y: PropTypes.number,
   z: PropTypes.number,
-};
+});
 
 export const animationPropType = {
   property: PropTypes.string,
-  from: PropTypes.string,
-  to: PropTypes.shape(axisPropType),
+  from: PropTypes.oneOfType([axisPropType, PropTypes.string]),
+  to: PropTypes.oneOfType([axisPropType, PropTypes.string]),
   delay: PropTypes.number,
   dir: PropTypes.oneOf(ANIMATION_DIRECTIONS),
   dur: PropTypes.number,
@@ -99,13 +99,16 @@ export const markerPropType = {
   inherent: PropTypes.bool,
 };
 
+const animationProperties = PropTypes.shape(animationPropType);
+const arrayOfAnmation = PropTypes.arrayOf(animationProperties);
+
 export const boxPropType = {
   color: PropTypes.string,
   material: PropTypes.string,
-  position: PropTypes.shape(axisPropType),
-  scale: PropTypes.shape(axisPropType),
-  rotation: PropTypes.shape(axisPropType),
-  animation: PropTypes.shape(animationPropType),
+  position: axisPropType,
+  scale: axisPropType,
+  rotation: axisPropType,
+  animation: PropTypes.oneOfType([arrayOfAnmation, animationProperties]),
   'gps-entity-place': PropTypes.string,
 };
 
@@ -127,7 +130,7 @@ export const textPropType = {
   'letter-spacing': PropTypes.number,
   'line-height': PropTypes.number,
   opacity: PropTypes.number,
-  rotation: PropTypes.shape(axisPropType),
+  rotation: axisPropType,
   shader: PropTypes.string,
   side: PropTypes.oneOf(TEXT_SIDE),
   'tab-size': PropTypes.number,

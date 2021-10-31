@@ -10,7 +10,7 @@ const Entity = (props) => {
   return (
     <a-entity
       {...propsConverter(_.omit(props, ['children', 'animation']))}
-      animation={animation}
+      {...animation}
     >
       {props.children}
     </a-entity>
