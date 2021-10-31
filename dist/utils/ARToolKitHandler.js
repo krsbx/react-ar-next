@@ -34,16 +34,12 @@ var passSceneRef = function passSceneRef(getSceneRef, ref) {
 exports.passSceneRef = passSceneRef;
 
 var locationMode = function locationMode(value) {
-  return value ? /*#__PURE__*/(0, _jsxRuntime.jsx)("a-entity", {
-    camera: true,
+  return value ? /*#__PURE__*/(0, _jsxRuntime.jsx)("a-camera", {
     "gps-camera": true,
     "rotation-reader": true,
-    "look-controls": false,
-    position: "0 1.6 0",
     id: 'react-ar-next-camera'
   }) : /*#__PURE__*/(0, _jsxRuntime.jsx)("a-entity", {
     camera: true,
-    "look-controls": false,
     position: "0 1.6 0",
     id: 'react-ar-next-camera'
   });

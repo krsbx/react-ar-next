@@ -39,14 +39,40 @@ var Example = function Example() {
         children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_Entity.default, {
           material: "color: red",
           "gltf-model": "https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf",
-          scale: "0.02 0.02 0.02",
-          position: "0 0 0",
-          animation: {
+          scale: {
+            x: 0.02,
+            y: 0.02,
+            z: 0.02
+          },
+          position: {
+            x: 0,
+            y: 0,
+            z: 0
+          },
+          animation: [{
             property: 'rotation',
-            to: '0 360 0',
-            dur: '5000',
+            to: {
+              x: 0,
+              y: 360,
+              z: 0
+            },
+            dur: 5000,
             loop: true
-          }
+          }, {
+            property: 'scale',
+            from: {
+              x: 0.02,
+              y: 0.02,
+              z: 0.02
+            },
+            to: {
+              x: 0.2,
+              y: 0.2,
+              z: 0.2
+            },
+            dur: 5000,
+            loop: true
+          }]
         })
       })
     })

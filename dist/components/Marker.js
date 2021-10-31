@@ -9,9 +9,9 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _MarkerHandler = require("../utils/MarkerHandler");
+var _markerHandler = require("../utils/markerHandler");
 
-var _PropChecking = require("../utils/PropChecking");
+var _propChecking = require("../utils/propChecking");
 
 var _krsbxHooks = require("krsbx-hooks");
 
@@ -41,7 +41,7 @@ var Marker = function Marker(_ref) {
       markerRef = _useARProvider.markerRef;
 
   var thisMarkerRef = (0, _react.useRef)();
-  !!parameters && (0, _MarkerHandler.isCustomMarker)(parameters);
+  !!parameters && (0, _markerHandler.isCustomMarker)(parameters);
   (0, _krsbxHooks.useEventListener)('markerFound', function () {
     !!onMarkerFound && onMarkerFound();
     markerRef.current = thisMarkerRef.current;
@@ -53,15 +53,15 @@ var Marker = function Marker(_ref) {
     setIsVisible(false);
   }, thisMarkerRef.current);
   return inherent ? /*#__PURE__*/(0, _jsxRuntime.jsx)("a-marker", _objectSpread(_objectSpread({}, parameters), {}, {
-    ref: markerRef,
+    ref: thisMarkerRef,
     children: children
   })) : /*#__PURE__*/(0, _jsxRuntime.jsx)("a-marker-camera", _objectSpread(_objectSpread({}, parameters), {}, {
-    ref: markerRef,
+    ref: thisMarkerRef,
     children: children
   }));
 };
 
-Marker.propTypes = _PropChecking.markerPropType;
+Marker.propTypes = _propChecking.markerPropType;
 Marker.defaultProps = {
   parameters: {},
   inherent: true

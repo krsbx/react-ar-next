@@ -9,9 +9,11 @@ var _lodash = _interopRequireDefault(require("lodash"));
 
 var _react = _interopRequireDefault(require("react"));
 
-var _PropChecking = require("../utils/PropChecking");
+var _propChecking = require("../utils/propChecking");
 
-var _AnimationHandler = require("../utils/AnimationHandler");
+var _animationHandler = require("../utils/animationHandler");
+
+var _componentHandler = require("../utils/componentHandler");
 
 var _jsxRuntime = require("react/jsx-runtime");
 
@@ -24,13 +26,12 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var Entity = function Entity(props) {
-  var animation = props.animation && (0, _AnimationHandler.getAnimations)(props.animation);
-  return /*#__PURE__*/(0, _jsxRuntime.jsx)("a-entity", _objectSpread(_objectSpread({}, _lodash.default.omit(props, ['children', 'animation'])), {}, {
-    animation: animation,
+  var animation = props.animation && (0, _animationHandler.getAnimations)(props.animation);
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)("a-entity", _objectSpread(_objectSpread(_objectSpread({}, (0, _componentHandler.propsConverter)(_lodash.default.omit(props, ['children', 'animation']))), animation), {}, {
     children: props.children
   }));
 };
 
-Entity.propTypes = _PropChecking.entityPropType;
+Entity.propTypes = _propChecking.entityPropType;
 var _default = Entity;
 exports.default = _default;

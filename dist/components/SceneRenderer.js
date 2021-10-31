@@ -7,9 +7,9 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _ARToolKitHandler = require("../utils/ARToolKitHandler");
+var _arToolKitHandler = require("../utils/arToolKitHandler");
 
-var _PropChecking = require("../utils/PropChecking");
+var _propChecking = require("../utils/propChecking");
 
 var _jsxRuntime = require("react/jsx-runtime");
 
@@ -38,18 +38,18 @@ var SceneRenderer = function SceneRenderer(props) {
 
   return /*#__PURE__*/(0, _jsxRuntime.jsxs)("a-scene", _objectSpread(_objectSpread({
     ref: function ref(sceneRef) {
-      (0, _ARToolKitHandler.passSceneRef)(getSceneRef, sceneRef);
+      (0, _arToolKitHandler.passSceneRef)(getSceneRef, sceneRef);
       renderer.current = sceneRef;
     },
     embedded: true,
-    arjs: (0, _ARToolKitHandler.prepareToolKitParams)(arToolKit)
+    arjs: (0, _arToolKitHandler.prepareToolKitParams)(arToolKit)
   }, rest), {}, {
     "vr-mode-ui": "enabled: false",
-    children: [children, (0, _ARToolKitHandler.locationMode)(geoLocation)]
+    children: [children, (0, _arToolKitHandler.locationMode)(geoLocation)]
   }));
 };
 
-SceneRenderer.propTypes = _PropChecking.rendererPropsType;
+SceneRenderer.propTypes = _propChecking.rendererPropType;
 SceneRenderer.defaultProps = {
   arToolKit: {},
   getSceneRef: function getSceneRef() {},

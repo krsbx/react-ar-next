@@ -7,13 +7,13 @@ exports.default = void 0;
 
 var _ARProvider = require("../components/ARProvider");
 
-// Use this hooks for getting the current active camera
-var useARCamera = function useARCamera() {
+// Use this hooks for getting the current active marker
+var useARMarker = function useARMarker() {
   var _useARProvider = (0, _ARProvider.useARProvider)(),
-      cameraRef = _useARProvider.cameraRef;
+      markerRef = _useARProvider.markerRef;
 
-  return cameraRef.current;
+  return markerRef.current;
 };
 
-var _default = useARCamera;
+var _default = useARMarker;
 exports.default = _default;

@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.TRACKING_METHOD = exports.SOURCE_TYPE = exports.PARAMETERS = exports.MATRIX_CODE_TYPE = exports.MARKER_TYPE = exports.MARKER_PRESET = exports.DETECTION_MODE = exports.ANIMATION_PROPERTIES = exports.ANIMATION_EASING = exports.ANIMATION_DIRECTIONS = void 0;
+exports.TRACKING_METHOD = exports.TEXT_WHITESPACE = exports.TEXT_SIDE = exports.TEXT_PROPERTIES = exports.TEXT_BASE_LINE = exports.TEXT_ANCHOR = exports.TEXT_ALIGN = exports.SOURCE_TYPE = exports.PARAMETERS = exports.MATRIX_CODE_TYPE = exports.MARKER_TYPE = exports.MARKER_PRESET = exports.DETECTION_MODE = exports.ANIMATION_PROPERTIES = exports.ANIMATION_EASING = exports.ANIMATION_DIRECTIONS = void 0;
 var PARAMETERS = [// Core config
 'detectionMode', 'matrixCodeType', 'cameraParametersUrl', 'maxDetectionRate', // Source configuration
 'sourceType', 'sourceUrl', 'sourceWidth', 'sourceHeight', // Canvas dimensions
@@ -28,3 +28,17 @@ var ANIMATION_EASING = ['easeInQuad', 'easeOutQuad', 'easeInOutQuad,', 'easeInCu
 exports.ANIMATION_EASING = ANIMATION_EASING;
 var ANIMATION_PROPERTIES = ['property', 'isRawProperty', 'from', 'to', 'type', 'delay', 'dir', 'dur', 'easing', 'elasticity', 'loop', 'round', 'startEvents', 'pauseEvents', 'resumeEvents', 'autoplay', 'enabled'];
 exports.ANIMATION_PROPERTIES = ANIMATION_PROPERTIES;
+var TEXT_PROPERTIES = ['align', 'alpha-test', 'anchor', 'baseline', 'color', 'font', 'font-image', 'height', 'letter-spacing', 'line-height', 'rotation', 'opacity', 'shader', 'side', 'tab-size', 'transparent', 'value', 'white-space', 'width', 'wrap-count', 'wrap-pixels', 'z-offset'];
+exports.TEXT_PROPERTIES = TEXT_PROPERTIES;
+var TEXT_ALIGN = ['left', 'center', 'right'];
+exports.TEXT_ALIGN = TEXT_ALIGN;
+
+var TEXT_ANCHOR = _.concat(TEXT_ALIGN, ['align']);
+
+exports.TEXT_ANCHOR = TEXT_ANCHOR;
+var TEXT_BASE_LINE = ['top', 'center', 'bottom'];
+exports.TEXT_BASE_LINE = TEXT_BASE_LINE;
+var TEXT_SIDE = ['front', 'back', 'double'];
+exports.TEXT_SIDE = TEXT_SIDE;
+var TEXT_WHITESPACE = ['normal', 'pre', 'nowrap'];
+exports.TEXT_WHITESPACE = TEXT_WHITESPACE;

@@ -38,6 +38,7 @@ var ARContext = /*#__PURE__*/(0, _react.createContext)({
   },
   isVisible: false,
   setIsVisible: function setIsVisible() {},
+  distance: null,
   markerRef: null,
   cameraRef: null
 });
@@ -57,6 +58,7 @@ var ARProvider = function ARProvider(_ref) {
       isRemoved = _useToggle4[0],
       setIsRemoved = _useToggle4[1];
 
+  var distance = (0, _react.useRef)();
   var markerRef = (0, _react.useRef)();
   var cameraRef = (0, _react.useRef)();
 
@@ -78,6 +80,7 @@ var ARProvider = function ARProvider(_ref) {
       windowSize: windowSize,
       isVisible: isVisible,
       setIsVisible: setIsVisible,
+      distance: distance,
       markerRef: markerRef,
       cameraRef: cameraRef
     },

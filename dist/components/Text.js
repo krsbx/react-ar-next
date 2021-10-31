@@ -5,13 +5,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _lodash = _interopRequireDefault(require("lodash"));
-
 var _react = _interopRequireDefault(require("react"));
 
-var _propChecking = require("../utils/propChecking");
-
-var _animationHandler = require("../utils/animationHandler");
+var _PropChecking = require("../utils/PropChecking");
 
 var _componentHandler = require("../utils/componentHandler");
 
@@ -25,13 +21,10 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var Box = function Box(props) {
-  var animation = props.animation && (0, _animationHandler.getAnimations)(props.animation);
-  return /*#__PURE__*/(0, _jsxRuntime.jsx)("a-box", _objectSpread(_objectSpread(_objectSpread({}, (0, _componentHandler.propsConverter)(_lodash.default.omit(props, ['children', 'animation']))), animation), {}, {
-    children: props.children
-  }));
+var Text = function Text(props) {
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)("a-text", _objectSpread({}, (0, _componentHandler.propsConverter)(props)));
 };
 
-Box.propTypes = _propChecking.boxPropType;
-var _default = Box;
+Text.propTypes = _PropChecking.textPropType;
+var _default = Text;
 exports.default = _default;

@@ -11,13 +11,17 @@ var _lodash = _interopRequireDefault(require("lodash"));
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _ARToolKitHandler = require("../utils/ARToolKitHandler");
+var _arToolKitHandler = require("../utils/arToolKitHandler");
 
 var _SceneRenderer = _interopRequireDefault(require("./SceneRenderer"));
 
-var _PropChecking = require("../utils/PropChecking");
+var _propChecking = require("../utils/propChecking");
 
 var _useGesture = _interopRequireDefault(require("../utils/useGesture"));
+
+var _useDistanceSubscriber = _interopRequireDefault(require("../utils/useDistanceSubscriber"));
+
+var _krsbxHooks = require("krsbx-hooks");
 
 var _jsxRuntime = require("react/jsx-runtime");
 
@@ -34,16 +38,33 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var AFrameRenderer = function AFrameRenderer(props) {
-  var gestureHandler = props.gestureHandler;
+  var gestureHandler = props.gestureHandler,
+      onError = props.onError,
+      onInit = props.onInit;
   var container = document.body;
   var renderer = (0, _react.useRef)();
-  !!gestureHandler && (0, _useGesture.default)(gestureHandler);
-  return (0, _ARToolKitHandler.renderVirtualComponent)( /*#__PURE__*/(0, _jsxRuntime.jsx)(_SceneRenderer.default, _objectSpread(_objectSpread({}, _lodash.default.omit(props, ['gestureHandler'])), {}, {
+  !!gestureHandler && (0, _useGesture.default)(gestureHandler); // Add event listner for get distance between marker and camera
+
+  (0, _useDistanceSubscriber.default)(); // On camera cant be initialize
+
+  (0, _krsbxHooks.useEventListener)('camera-error', function () {
+    !!onError && onError();
+    console.error("Camera can't be initialize!");
+  }); // On camera can be initialize
+
+  (0, _krsbxHooks.useEventListener)('camera-init', function () {
+    !!onInit && onInit();
+    console.log('Camera successfulyy initialized!');
+  });
+  (0, _krsbxHooks.useEventListener)('gps-entity-place-added', function () {
+    console.log('Geolocation objects added!');
+  });
+  return (0, _arToolKitHandler.renderVirtualComponent)( /*#__PURE__*/(0, _jsxRuntime.jsx)(_SceneRenderer.default, _objectSpread(_objectSpread({}, _lodash.default.omit(props, ['gestureHandler'])), {}, {
     renderer: renderer
   })), container);
 };
 
-AFrameRenderer.propTypes = _PropChecking.rendererPropsType;
+AFrameRenderer.propTypes = _propChecking.aframeRenderPropType;
 AFrameRenderer.defaultProps = {
   arToolKit: {},
   getSceneRef: function getSceneRef() {},

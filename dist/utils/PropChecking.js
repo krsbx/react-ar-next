@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.rendererPropsType = exports.markerPropType = exports.entityPropType = exports.boxPropType = exports.animationPropType = exports.GESTURE_PARAMETER = void 0;
+exports.textPropType = exports.rendererPropType = exports.markerPropType = exports.entityPropType = exports.boxPropType = exports.axisPropType = exports.animationPropType = exports.aframeRenderPropType = exports.GESTURE_PARAMETER = void 0;
 
 var _lodash = _interopRequireDefault(require("lodash"));
 
@@ -24,7 +24,7 @@ var GESTURE_PARAMETER = {
 
 };
 exports.GESTURE_PARAMETER = GESTURE_PARAMETER;
-var rendererPropsType = {
+var rendererPropType = {
   arToolKit: _propTypes.default.shape({
     detectionMode: _propTypes.default.oneOf(_constant.DETECTION_MODE),
     matrixCodeType: _propTypes.default.oneOf(_constant.MATRIX_CODE_TYPE),
@@ -48,14 +48,29 @@ var rendererPropsType = {
   'gesture-detector': _propTypes.default.bool,
   gestureHandler: _propTypes.default.shape(GESTURE_PARAMETER)
 };
-exports.rendererPropsType = rendererPropsType;
+exports.rendererPropType = rendererPropType;
+
+var aframeRenderPropType = _lodash.default.assign(rendererPropType, {
+  onError: _propTypes.default.func,
+  onInit: _propTypes.default.func
+});
+
+exports.aframeRenderPropType = aframeRenderPropType;
+
+var axisPropType = _propTypes.default.shape({
+  x: _propTypes.default.number,
+  y: _propTypes.default.number,
+  z: _propTypes.default.number
+});
+
+exports.axisPropType = axisPropType;
 var animationPropType = {
   property: _propTypes.default.string,
-  from: _propTypes.default.string,
-  to: _propTypes.default.string,
+  from: _propTypes.default.oneOfType([axisPropType, _propTypes.default.string]),
+  to: _propTypes.default.oneOfType([axisPropType, _propTypes.default.string]),
   delay: _propTypes.default.number,
   dir: _propTypes.default.oneOf(_constant.ANIMATION_DIRECTIONS),
-  dur: _propTypes.default.string,
+  dur: _propTypes.default.number,
   easing: _propTypes.default.oneOf(_constant.ANIMATION_EASING),
   elasticity: _propTypes.default.number,
   loop: _propTypes.default.bool,
@@ -86,19 +101,51 @@ var markerPropType = {
   inherent: _propTypes.default.bool
 };
 exports.markerPropType = markerPropType;
+
+var animationProperties = _propTypes.default.shape(animationPropType);
+
+var arrayOfAnmation = _propTypes.default.arrayOf(animationProperties);
+
 var boxPropType = {
   color: _propTypes.default.string,
   material: _propTypes.default.string,
-  position: _propTypes.default.string,
-  scale: _propTypes.default.string,
-  animation: _propTypes.default.shape(animationPropType),
+  position: axisPropType,
+  scale: axisPropType,
+  rotation: axisPropType,
+  animation: _propTypes.default.oneOfType([arrayOfAnmation, animationProperties]),
   'gps-entity-place': _propTypes.default.string
 };
 exports.boxPropType = boxPropType;
 
 var entityPropType = _lodash.default.assign(boxPropType, {
   'gltf-model': _propTypes.default.string,
-  geometry: _propTypes.default.string
+  geometry: _propTypes.default.string,
+  visible: _propTypes.default.bool
 });
 
 exports.entityPropType = entityPropType;
+var textPropType = {
+  align: _propTypes.default.oneOf(_constant.TEXT_ALIGN),
+  'alpha-test': _propTypes.default.number,
+  anchor: _propTypes.default.oneOf(_constant.TEXT_ANCHOR),
+  baseline: _propTypes.default.oneOf(_constant.TEXT_BASE_LINE),
+  color: _propTypes.default.string,
+  font: _propTypes.default.string,
+  'font-image': _propTypes.default.string,
+  height: _propTypes.default.number,
+  'letter-spacing': _propTypes.default.number,
+  'line-height': _propTypes.default.number,
+  opacity: _propTypes.default.number,
+  rotation: axisPropType,
+  shader: _propTypes.default.string,
+  side: _propTypes.default.oneOf(_constant.TEXT_SIDE),
+  'tab-size': _propTypes.default.number,
+  transparent: _propTypes.default.bool,
+  value: _propTypes.default.string,
+  'white-space': _propTypes.default.oneOf(_constant.TEXT_WHITESPACE),
+  width: _propTypes.default.number,
+  'wrap-count': _propTypes.default.number,
+  'wrap-pixels': _propTypes.default.number,
+  'z-offset': _propTypes.default.number
+};
+exports.textPropType = textPropType;
