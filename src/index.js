@@ -1,5 +1,5 @@
 import AFrameRenderer from './components/AFrameRenderer';
-import ARProvider from './components/ARProvider';
+import ARProvider, {useARProvider} from './components/ARProvider';
 import Box from './components/Box';
 import Entity from './components/Entity';
 import Example from './components/Example';
@@ -20,4 +20,5 @@ export {
   useARCamera,
   useARDistance,
   useARMarker,
+  useARProvider,
 };
