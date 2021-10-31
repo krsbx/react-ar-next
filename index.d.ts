@@ -1,10 +1,14 @@
 import React from 'react';
 
 declare module 'react-ar-next' {
-  interface aRProviderInterface {
-    windowSize?: { height: Number; width: Number };
-    isVisible?: Boolean;
+  interface arProviderInterface {
+    windowSize: {
+      width: Number;
+      height: Number;
+    };
+    isVisible: Boolean;
     setIsVisible?: React.Dispatch<boolean>;
+    distance: React.MutableRefObject<any>;
     markerRef?: React.MutableRefObject<any>;
     cameraRef?: React.MutableRefObject<any>;
   }
@@ -182,4 +186,5 @@ declare module 'react-ar-next' {
   function useARCamera(): any;
   function useARDistance(): Number;
   function useARMarker(): any;
+  function useARProvider(): arProviderInterface;
 }
