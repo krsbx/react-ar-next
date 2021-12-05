@@ -3,7 +3,7 @@ import { useEventListener } from 'krsbx-hooks';
 import { useARProvider } from '../components/ARProvider';
 
 const useDistanceSubscriber = () => {
-  const { cameraRef, markerRef, distance } = useARProvider();
+  const { cameraRef, markerRef, distance }: any = useARProvider();
 
   const checkerInterval = setInterval(() => {
     const cameraPos = cameraRef.current && cameraRef.current.object3D.position;
@@ -13,7 +13,7 @@ const useDistanceSubscriber = () => {
       distance.current = cameraPos.distanceTo(markerPos);
   }, 1000);
 
-  const distanceChecker = useRef();
+  const distanceChecker = useRef<NodeJS.Timeout>();
 
   useEventListener(
     'markerFound',

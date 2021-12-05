@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import AFrameRenderer from './AFrameRenderer';
 import Marker from './Marker';
 import Entity from './Entity';
@@ -8,11 +8,7 @@ const Example = () => {
 
   return (
     <div>
-      <AFrameRenderer
-        arToolKit={{}}
-        stats
-        getSceneRef={(ref) => (scene.current = ref)}
-      >
+      <AFrameRenderer stats getSceneRef={(ref: any) => (scene.current = ref)}>
         <Marker parameters={{ preset: 'hiro' }}>
           <Entity
             material="color: red"

@@ -2,10 +2,10 @@ import _ from 'lodash';
 
 /**
  * Join an object to a string
- * @param {object} props component props
- * @return {object} single object for each props
+ * @param props component props
+ * @return single object for each props
  */
-export const propsConverter = (props) => {
+export const propsConverter = (props: Record<any, any>) => {
   _.forEach(props, (value, index) => {
     const currentData = value;
 

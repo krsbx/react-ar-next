@@ -2,12 +2,12 @@ import _ from 'lodash';
 import React, { useRef } from 'react';
 import { renderVirtualComponent } from '../utils/arToolKitHandler';
 import SceneRenderer from './SceneRenderer';
-import { aframeRenderPropType } from '../utils/propChecking';
 import useGesture from '../utils/useGesture';
 import useDistanceSubscriber from '../utils/useDistanceSubscriber';
+import { rendererInterface } from '../utils/componentInterface';
 import { useEventListener } from 'krsbx-hooks';
 
-const AFrameRenderer = (props) => {
+const AFrameRenderer: React.FC<rendererInterface> = (props) => {
   const { gestureHandler, onError, onInit } = props;
 
   const container = document.body;
@@ -44,8 +44,6 @@ const AFrameRenderer = (props) => {
     container
   );
 };
-
-AFrameRenderer.propTypes = aframeRenderPropType;
 
 AFrameRenderer.defaultProps = {
   arToolKit: {},
