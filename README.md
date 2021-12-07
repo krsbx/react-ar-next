@@ -45,3 +45,7 @@ You can find the detailed documentations of the usage [here](/docs/usage.md)
 ## Changelog
 
 You can find changelogs of the project [here](docs/changelog.md)
+
+## To Do
+
+You can find the upcoming one for this project in [here](docs/todo.md)
