@@ -1,5 +1,5 @@
 import React from 'react';
-import { textPropType } from '../utils/PropChecking';
+import { textPropType } from '../utils/propChecking';
 import { propsConverter } from '../utils/componentHandler';
 
 const Text = (props) => {
