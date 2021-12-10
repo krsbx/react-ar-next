@@ -111,20 +111,22 @@ const updateFullMarkerImage =
     );
   };
 
+/**
+ *
+ * @param {string} dataURI - base64 encoded image
+ * @returns {Promise<HTMLImageElement>}
+ */
 const loadImage = async (dataURI) => {
   const image = new Image();
-  const promise =
-    new Promise() <
-    HTMLImageElement >
-    ((resolve, reject) => {
-      image.addEventListener('load', () => {
-        resolve(image);
-      });
-
-      image.addEventListener('error', () => {
-        reject('Error loading image');
-      });
+  const promise = new Promise((resolve, reject) => {
+    image.addEventListener('load', () => {
+      resolve(image);
     });
+
+    image.addEventListener('error', () => {
+      reject('Error loading image');
+    });
+  });
 
   image.src = dataURI;
   return promise;
