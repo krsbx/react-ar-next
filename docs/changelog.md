@@ -7,6 +7,7 @@
   - Marker selector added
   - Camera selector added
   - Distance selector added
+  - Marker Generator added
 
 * Version `1.0.0`
   - AR Features added
