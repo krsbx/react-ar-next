@@ -17,6 +17,8 @@ const SceneRenderer = (props) => {
     ...rest
   } = props;
 
+  const arjs = prepareToolKitParams(arToolKit);
+
   return (
     <a-scene
       ref={(sceneRef) => {
@@ -24,12 +26,12 @@ const SceneRenderer = (props) => {
         renderer.current = sceneRef;
       }}
       embedded
-      arjs={prepareToolKitParams(arToolKit)}
+      arjs={arjs}
       {...rest}
       vr-mode-ui="enabled: false"
     >
       {children}
-      {locationMode(geoLocation)}
+      {locationMode(geoLocation || false)}
     </a-scene>
   );
 };

@@ -1,6 +1,11 @@
 import _ from 'lodash';
 import { ANIMATION_PROPERTIES } from './constant';
 
+/**
+ * Generate animation for a single object
+ * @param {object} props animation properties
+ * @returns {string} animationParams
+ */
 const singleAnimationHandler = (props) => {
   let animationParams = '';
 
@@ -19,6 +24,11 @@ const singleAnimationHandler = (props) => {
   return animationParams;
 };
 
+/**
+ * Generate animation for objects
+ * @param {object} props animation properties
+ * @returns {object} animationParams
+ */
 const multipleAnimationHandler = (props) => {
   let animationParams = [];
 
@@ -38,8 +48,13 @@ const multipleAnimationHandler = (props) => {
   return animationObject;
 };
 
+/**
+ *
+ * @param {object | object[]} props
+ * @returns {string | object} animationParams
+ */
 export const getAnimations = (props) => {
-  let animationParams = '';
+  let animationParams = null;
 
   if (_.isArray(props)) {
     // Multiple animations

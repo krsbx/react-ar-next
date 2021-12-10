@@ -49,11 +49,15 @@ export const rendererPropType = {
   stats: PropTypes.bool,
   'gesture-detector': PropTypes.bool,
   gestureHandler: PropTypes.shape(GESTURE_PARAMETER),
+  renderer: PropTypes.func,
 };
 
 export const aframeRenderPropType = _.assign(rendererPropType, {
   onError: PropTypes.func,
   onInit: PropTypes.func,
+  onError: PropTypes.func,
+  onInit: PropTypes.func,
+  autoRestart: PropTypes.bool,
 });
 
 export const axisPropType = PropTypes.shape({
@@ -81,9 +85,8 @@ export const markerPropType = {
   parameters: PropTypes.shape({
     type: PropTypes.oneOf(MARKER_TYPE),
     size: PropTypes.number,
-    patternUrl: PropTypes.string,
     url: PropTypes.string,
-    barcodeValue: PropTypes.number,
+    value: PropTypes.number,
     changeMatrixMode: PropTypes.string,
     minConfidence: PropTypes.number,
     preset: PropTypes.oneOf(MARKER_PRESET),

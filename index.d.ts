@@ -1,11 +1,14 @@
 import React from 'react';
 
 declare module 'react-ar-next' {
-  interface arProviderInterface {
-    windowSize: {
-      width: Number;
-      height: Number;
-    };
+  export interface axisInterface {
+    x: number;
+    y: number;
+    z: number;
+  }
+
+  export interface arProviderInterface {
+    windowSize?: { height: number; width: number };
     isVisible: Boolean;
     setIsVisible?: React.Dispatch<boolean>;
     distance: React.MutableRefObject<any>;
@@ -13,31 +16,30 @@ declare module 'react-ar-next' {
     cameraRef?: React.MutableRefObject<any>;
   }
 
-  interface markerParameterInterface {
+  export interface markerParameterInterface {
     type?: 'pattern' | 'barcode' | 'unknown';
-    size?: Number;
-    patternUrl?: String;
-    url?: String;
-    barcodeValue?: Number;
-    changeMatrixMode?: String;
-    minConfidence?: Number;
-    preset?: 'hiro' | 'kanji' | 'custom';
-    markerhelpers?: Boolean;
-    'hit-testing-enabled'?: Boolean;
-    'hit-testing-renderDebug'?: Boolean;
-    smoothCount?: Number;
-    smoothTolerance?: Number;
-    smoothThreshold?: Number;
+    size?: number;
+    url?: string;
+    value?: number;
+    changeMatrixMode?: string;
+    minConfidence?: number;
+    preset?: 'hiro' | 'kanji';
+    markerhelpers?: boolean;
+    'hit-testing-enabled'?: boolean;
+    'hit-testing-renderDebug'?: boolean;
+    smoothCount?: number;
+    smoothTolerance?: number;
+    smoothThreshold?: number;
   }
 
-  interface markerInterface {
+  export interface markerInterface {
     onMarkerFound?: Function;
     onMarkerLost?: Function;
     parameters?: markerParameterInterface;
     inherent?: boolean;
   }
 
-  interface arToolkitInterface {
+  export interface arToolkitInterface {
     detectionMode?: 'color' | 'color_and_matrix' | 'mono' | 'mono_and_matrix';
     matrixCodeType?:
       | '3x3'
@@ -46,57 +48,54 @@ declare module 'react-ar-next' {
       | '4x4'
       | '4x4_BCH_13_9_3'
       | '4x4_BCH_13_5_5';
-    cameraParametersUrl?: String;
-    maxDetectionRate?: Number;
+    cameraParametersUrl?: string;
+    maxDetectionRate?: number;
 
     sourceType?: 'webcam' | 'image' | 'video';
-    sourceUrl?: String;
-    sourceHeight?: Number;
-    sourceWidth?: Number;
+    sourceUrl?: string;
+    sourceHeight?: number;
+    sourceWidth?: number;
 
-    displayHeight?: Number;
-    displayWidth?: Number;
-    canvasHeight?: Number;
-    canvasWidth?: Number;
+    displayHeight?: number;
+    displayWidth?: number;
+    canvasHeight?: number;
+    canvasWidth?: number;
 
     trackingMethod?: 'tango' | 'artoolkit' | 'best';
-    debugUIEnabled?: Boolean;
+    debugUIEnabled?: boolean;
   }
 
-  interface gestureInterface {
+  export interface gestureInterface {
     oneFinger?: Function; // Usually for rotating
     twoFinger?: Function; // Usually for scaling/zooming
     threeFinger?: Function; // Custom functions as you want
     fourFinger?: Function;
   }
 
-  interface rendererInterface {
+  export interface rendererInterface {
     arToolKit?: arToolkitInterface;
     getSceneRef?: Function;
-    geoLocation?: Boolean;
-    inherent?: Boolean;
-    stats?: Boolean;
-    'gesture-detector'?: Boolean;
+    geoLocation?: boolean;
+    inherent?: boolean;
+    stats?: boolean;
+    'gesture-detector'?: boolean;
     gestureHandler?: gestureInterface;
+    onError?: Function;
+    onInit?: Function;
+    autoRestart?: boolean;
   }
 
-  interface sceneInterface extends rendererInterface {
+  export interface sceneInterface extends rendererInterface {
     renderer: any;
   }
 
-  interface axisInterface {
-    x: Number;
-    y: Number;
-    z: Number;
-  }
-
-  interface animationInterface {
-    property?: String;
-    from?: axisInterface | String;
-    to?: axisInterface | String;
-    delay?: Number;
+  export interface animationInterface {
+    property?: string;
+    from?: axisInterface | string;
+    to?: axisInterface | string;
+    delay?: number;
     dir?: 'normal' | 'alternate' | 'reverse';
-    dur?: Number;
+    dur?: number;
     easing?:
       | 'easeInQuad'
       | 'easeOutQuad'
@@ -126,14 +125,14 @@ declare module 'react-ar-next' {
       | 'easeOutElastic'
       | 'easeInOutElastic'
       | 'linear';
-    elasticity?: Number;
-    loop?: Boolean;
-    round?: Boolean;
-    autoplay?: Boolean;
-    enabled?: Boolean;
+    elasticity?: number;
+    loop?: boolean;
+    round?: boolean;
+    autoplay?: boolean;
+    enabled?: boolean;
   }
 
-  interface boxInterface {
+  export interface boxInterface {
     color?: string;
     material?: string;
     position?: axisInterface;
@@ -143,35 +142,42 @@ declare module 'react-ar-next' {
     'gps-entity-place'?: string;
   }
 
-  interface entityInterface extends boxInterface {
+  export interface entityInterface extends boxInterface {
     'gltf-model'?: string;
     geometry?: string;
     visible?: boolean;
   }
 
-  interface textInterface {
-    align?: 'left' | 'center' | 'right';
-    'alpha-test'?: Number;
-    anchor?: 'left' | 'center' | 'right' | 'align';
-    baseline?: 'top' | 'center' | 'bottom';
-    color?: String;
-    font?: String;
-    'font-image'?: String;
-    height?: Number;
-    'letter-spacing'?: Number;
-    'line-height'?: Number;
-    opacity?: Number;
-    rotation?: axisInterface;
-    shader?: String;
-    side?: 'front' | 'back' | 'double';
-    'tab-size'?: Number;
-    transparent?: Boolean;
-    value?: String;
-    'white-space'?: 'normal' | 'pre' | 'nowrap';
-    width?: Number;
-    'wrap-count'?: Number;
-    'wrap-pixels'?: Number;
-    'z-offset'?: Number;
+  export interface textInterface {
+    align: 'left' | 'center' | 'right';
+    'alpha-test': number;
+    anchor: 'left' | 'center' | 'right' | 'align';
+    baseline: 'top' | 'center' | 'bottom';
+    color: string;
+    font: string;
+    'font-image': string;
+    height: number;
+    'letter-spacing': number;
+    'line-height': number;
+    opacity: number;
+    rotation: axisInterface;
+    shader: string;
+    side: 'front' | 'back' | 'double';
+    'tab-size': number;
+    transparent: boolean;
+    value: string;
+    'white-space': 'normal' | 'pre' | 'nowrap';
+    width: number;
+    'wrap-count': number;
+    'wrap-pixels': number;
+    'z-offset': number;
+  }
+
+  export type onCompleteType = (pathName: string) => void;
+
+  export interface IMarkerTraining {
+    mainContainer: React.RefObject<HTMLCanvasElement>;
+    imageContainer: React.RefObject<HTMLImageElement>;
   }
 
   class AFrameRenderer extends React.Component<rendererInterface, any> {}
@@ -179,6 +185,7 @@ declare module 'react-ar-next' {
   class Box extends React.Component<boxInterface, any> {}
   class Entity extends React.Component<entityInterface, any> {}
   class Example extends React.Component<any, any> {}
+  class ExampleMarkerGenerator extends React.Component<any, any> {}
   class Marker extends React.Component<markerInterface, any> {}
   class SceneRenderer extends React.Component<sceneInterface, any> {}
   class Text extends React.Component<textInterface, any> {}
@@ -187,4 +194,29 @@ declare module 'react-ar-next' {
   function useARDistance(): Number;
   function useARMarker(): any;
   function useARProvider(): arProviderInterface;
+  function MarkerTrainer(referencer: IMarkerTraining): {
+    isHexColor: boolean;
+    buildMarker: (
+      referencer: IMarkerTraining
+    ) => (
+      innerImageURL: string,
+      ratio: number,
+      size: number,
+      color: string,
+      onComplete: onCompleteType
+    ) => void;
+    updateFullMarkerImage: (
+      referencer: IMarkerTraining
+    ) => (
+      ratio: number,
+      size: number,
+      color: string,
+      marker: string,
+      onComplete: onCompleteType
+    ) => void;
+    loadImage: (markerURI: string) => Promise<string>;
+    generatePattern: (markerURI: string) => Promise<string>;
+    generateImageFile: (markerURI: string, fileName: string) => void;
+    triggerDownload: (patternFileString: string, fileName: string) => void;
+  };
 }

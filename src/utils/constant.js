@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 export const PARAMETERS = [
   // Core config
   'detectionMode',
@@ -47,7 +49,7 @@ export const TRACKING_METHOD = ['tango', 'artoolkit', 'best'];
 
 export const MARKER_TYPE = ['pattern', 'barcode', 'unknown'];
 
-export const MARKER_PRESET = ['hiro', 'kanji', 'custom'];
+export const MARKER_PRESET = ['hiro', 'kanji'];
 
 export const ANIMATION_DIRECTIONS = ['normal', 'alternate', 'reverse'];
 

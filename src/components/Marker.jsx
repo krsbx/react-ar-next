@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-import { isCustomMarker } from '../utils/markerHandler';
 import { markerPropType } from '../utils/propChecking';
 import { useEventListener } from 'krsbx-hooks';
 import { useARProvider } from './ARProvider';
@@ -14,23 +13,26 @@ const Marker = ({
   const { setIsVisible, markerRef } = useARProvider();
   const thisMarkerRef = useRef();
 
-  !!parameters && isCustomMarker(parameters);
-
   useEventListener(
     'markerFound',
     () => {
       !!onMarkerFound && onMarkerFound();
       markerRef.current = thisMarkerRef.current;
       setIsVisible(true);
+
+      console.log('Marker found');
     },
     thisMarkerRef.current
   );
+
   useEventListener(
     'markerLost',
     () => {
       !!onMarkerLost && onMarkerLost();
       markerRef.current = null;
       setIsVisible(false);
+
+      console.log('Marker lost');
     },
     thisMarkerRef.current
   );
