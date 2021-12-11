@@ -4,9 +4,9 @@ import {
   passSceneRef,
   locationMode,
 } from '../utils/arToolKitHandler';
-import { rendererPropType } from '../utils/propChecking';
+import { sceneInterface } from '../utils/componentInterface';
 
-const SceneRenderer = (props) => {
+const SceneRenderer: React.FC<sceneInterface> = (props) => {
   const {
     arToolKit,
     getSceneRef,
@@ -20,8 +20,9 @@ const SceneRenderer = (props) => {
   const arjs = prepareToolKitParams(arToolKit);
 
   return (
+    // @ts-ignore
     <a-scene
-      ref={(sceneRef) => {
+      ref={(sceneRef: any) => {
         passSceneRef(getSceneRef, sceneRef);
         renderer.current = sceneRef;
       }}
@@ -32,11 +33,10 @@ const SceneRenderer = (props) => {
     >
       {children}
       {locationMode(geoLocation || false)}
+      {/*// @ts-ignore*/}
     </a-scene>
   );
 };
-
-SceneRenderer.propTypes = rendererPropType;
 
 SceneRenderer.defaultProps = {
   arToolKit: {},

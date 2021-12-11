@@ -2,13 +2,13 @@ import _ from 'lodash';
 import React, { useRef } from 'react';
 import { renderVirtualComponent } from '../utils/arToolKitHandler';
 import SceneRenderer from './SceneRenderer';
-import { aframeRenderPropType } from '../utils/propChecking';
 import useGesture from '../utils/useGesture';
 import useDistanceSubscriber from '../utils/useDistanceSubscriber';
+import { rendererInterface } from '../utils/componentInterface';
 import { useEventListener } from 'krsbx-hooks';
 
-const AFrameRenderer = (props) => {
-  const { gestureHandler, onError, onInit } = props;
+const AFrameRenderer: React.FC<rendererInterface> = (props) => {
+  const { gestureHandler, onError, onInit, autoRestart } = props;
 
   const container = document.body;
   const renderer = useRef();
@@ -23,6 +23,12 @@ const AFrameRenderer = (props) => {
     !!onError && onError();
 
     console.error("Camera can't be initialize!");
+
+    if (autoRestart) {
+      setTimeout(() => {
+        window.location.reload();
+      }, 3000);
+    }
   });
 
   // On camera can be initialize
@@ -44,8 +50,6 @@ const AFrameRenderer = (props) => {
     container
   );
 };
-
-AFrameRenderer.propTypes = aframeRenderPropType;
 
 AFrameRenderer.defaultProps = {
   arToolKit: {},

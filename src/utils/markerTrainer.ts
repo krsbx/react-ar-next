@@ -1,24 +1,18 @@
+import { IMarkerTraining, onCompleteType } from './componentInterface';
+
 const innerImageURL = '';
 
-const isHexColor = (color) => /^#[0-9A-F]{6}$/i.test(color);
-
-/**
- * Generate base64 from user image
- * @param {object} referencer
- * @param {React.RefObject<HTMLCanvasElement>} referencer.mainContainer
- * @param {React.RefObject<HTMLImageElement>} referencer.imageContainer
- */
+const isHexColor = (color: string) => /^#[0-9A-F]{6}$/i.test(color);
 
 const buildMarker =
-  (referencer) =>
-  /**
-   * @param {string} innerImageURL - base64 encoded image
-   * @param {number} ratio - ratio of the marker
-   * @param {number} size - size of the marker image (resolutions)
-   * @param {string} color - color of the marker border
-   * @param {function} onComplete - callback returns base64 encoded image
-   */
-  (innerImageURL, ratio, size, color, onComplete) => {
+  (referencer: IMarkerTraining) =>
+  (
+    innerImageURL: string,
+    ratio: number,
+    size: number,
+    color: string,
+    onComplete: onCompleteType
+  ) => {
     const outerMargin = 0.1;
     const borderMargin = (1 - 2 * outerMargin) * ((1 - ratio) / 2);
     const imageMargin = outerMargin + borderMargin;
@@ -79,22 +73,15 @@ const buildMarker =
     }
   };
 
-/**
- * Generate base64 from user image
- * @param {object} referencer
- * @param {React.RefObject<HTMLCanvasElement>} referencer.mainContainer
- * @param {React.RefObject<HTMLImageElement>} referencer.imageContainer
- */
 const updateFullMarkerImage =
-  (referencer) =>
-  /**
-   * @param {number} ratio - ratio of the marker
-   * @param {number} size - size of the marker image (resolutions)
-   * @param {string} color - color of the marker border
-   * @param {string} marker - base64 encoded image
-   * @param {function} onComplete - callback returns base64 encoded image
-   */
-  (ratio, size, color, marker, onComplete) => {
+  (referencer: IMarkerTraining) =>
+  (
+    ratio: number,
+    size: number,
+    color: string,
+    marker: string,
+    onComplete: onCompleteType
+  ) => {
     const style = new Option().style;
     style.color = color;
 
@@ -111,14 +98,9 @@ const updateFullMarkerImage =
     );
   };
 
-/**
- *
- * @param {string} dataURI - base64 encoded image
- * @returns {Promise<HTMLImageElement>}
- */
-const loadImage = async (dataURI) => {
+const loadImage = async (dataURI: string) => {
   const image = new Image();
-  const promise = new Promise((resolve, reject) => {
+  const promise = new Promise<HTMLImageElement>((resolve, reject) => {
     image.addEventListener('load', () => {
       resolve(image);
     });
@@ -136,7 +118,7 @@ const loadImage = async (dataURI) => {
  * call this on before downloading the pattern file
  * @param markerURI base64 encoded image
  */
-const generatePattern = async (markerURI) => {
+const generatePattern = async (markerURI: string) => {
   const image = await loadImage(markerURI);
   const canvas = document.createElement('canvas');
   const context = canvas.getContext('2d');
@@ -189,10 +171,12 @@ const generatePattern = async (markerURI) => {
 
 /**
  * call this on downloading the marker file
- * @param {string} markerURI base64 encoded image
- * @param {string} fileName name of downloaded file
+ * @param markerURI base64 encoded image
  */
-const generateImageFile = (markerURI, fileName = 'pattern-marker.png') => {
+const generateImageFile = (
+  markerURI: string,
+  fileName: string = 'pattern-marker.png'
+) => {
   const tempElement = document.createElement('a');
   tempElement.href = markerURI;
   tempElement.download = fileName;
@@ -202,12 +186,11 @@ const generateImageFile = (markerURI, fileName = 'pattern-marker.png') => {
 };
 
 /**
- * @param {string} patternFileString generated pattern string
- * @param {string} fileName name of downloaded file
+ * @param patternFileString generated pattern string
  */
 const triggerDownload = (
-  patternFileString,
-  fileName = 'pattern-marker.patt'
+  patternFileString: string,
+  fileName: string = 'pattern-marker.patt'
 ) => {
   const tempElement = document.createElement('a');
   tempElement.href = URL.createObjectURL(
@@ -219,7 +202,7 @@ const triggerDownload = (
   document.body.removeChild(tempElement);
 };
 
-const MarkerTrainer = (referencer) => ({
+const MarkerTrainer = (referencer: IMarkerTraining) => ({
   isHexColor,
   loadImage,
   generatePattern,

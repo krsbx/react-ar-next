@@ -1,29 +1,29 @@
-import _ from 'lodash';
 import { useEventListener } from 'krsbx-hooks';
 import { useARProvider } from '../components/ARProvider';
+import { gestureInterface } from './componentInterface';
 
-const useGesture = (gestureObjects) => {
+const useGesture = (gestureObjects: gestureInterface) => {
   const { oneFinger, twoFinger, threeFinger, fourFinger } = gestureObjects;
 
   const { isVisible } = useARProvider();
 
   !!oneFinger &&
-    useEventListener('onefingermove', (e) => {
+    useEventListener('onefingermove', (e: Event) => {
       isVisible && oneFinger();
     });
 
   !!twoFinger &&
-    useEventListener('twofingermove', (e) => {
+    useEventListener('twofingermove', (e: Event) => {
       isVisible && twoFinger();
     });
 
   !!threeFinger &&
-    useEventListener('threefingermove', (e) => {
+    useEventListener('threefingermove', (e: Event) => {
       isVisible && threeFinger();
     });
 
   !!fourFinger &&
-    useEventListener('manyfingermove', (e) => {
+    useEventListener('manyfingermove', (e: Event) => {
       isVisible && fourFinger();
     });
 };

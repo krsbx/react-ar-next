@@ -1,17 +1,17 @@
 import React, { useRef } from 'react';
-import { markerPropType } from '../utils/propChecking';
 import { useEventListener } from 'krsbx-hooks';
 import { useARProvider } from './ARProvider';
+import { markerInterface } from '../utils/componentInterface';
 
-const Marker = ({
+const Marker: React.FC<markerInterface> = ({
   parameters,
   onMarkerFound,
   onMarkerLost,
   inherent,
   children,
 }) => {
-  const { setIsVisible, markerRef } = useARProvider();
-  const thisMarkerRef = useRef();
+  const { setIsVisible, markerRef }: any = useARProvider();
+  const thisMarkerRef: any = useRef();
 
   useEventListener(
     'markerFound',
@@ -38,17 +38,19 @@ const Marker = ({
   );
 
   return inherent ? (
+    // @ts-ignore
     <a-marker {...parameters} ref={thisMarkerRef}>
       {children}
+      {/*// @ts-ignore*/}
     </a-marker>
   ) : (
+    // @ts-ignore
     <a-marker-camera {...parameters} ref={thisMarkerRef}>
       {children}
+      {/*// @ts-ignore*/}
     </a-marker-camera>
   );
 };
-
-Marker.propTypes = markerPropType;
 
 Marker.defaultProps = {
   parameters: {},

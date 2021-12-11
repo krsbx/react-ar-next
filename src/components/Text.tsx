@@ -1,11 +1,10 @@
 import React from 'react';
-import { textPropType } from '../utils/propChecking';
 import { propsConverter } from '../utils/componentHandler';
+import { textInterface } from '../utils/componentInterface';
 
-const Text = (props) => {
+const Text: React.FC<textInterface> = (props) => {
+  // @ts-ignore
   return <a-text {...propsConverter(props)}></a-text>;
 };
-
-Text.propTypes = textPropType;
 
 export default Text;

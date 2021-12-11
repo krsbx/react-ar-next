@@ -2,12 +2,12 @@ import { useRef, useEffect, useState } from 'react';
 import MarkerTrainer from '../utils/markerTrainer';
 
 const ExampleMarkerGenerator = () => {
-  const mainContainer = useRef(null);
-  const imageContainer = useRef(null);
+  const mainContainer = useRef<HTMLCanvasElement>(null);
+  const imageContainer = useRef<HTMLImageElement>(null);
   const [ratio, setRatio] = useState(83);
   const [size, setSize] = useState(303);
   const [color, setColor] = useState('');
-  const [marker, setMarker] = useState();
+  const [marker, setMarker] = useState<Blob>();
   const referencer = { imageContainer, mainContainer };
   const [markerURL, setMarkerURL] = useState('');
   const fileReader = new FileReader();
