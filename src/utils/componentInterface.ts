@@ -8,8 +8,9 @@ export interface axisInterface {
 
 export interface arProviderInterface {
   windowSize?: { height: number; width: number };
-  isVisible?: boolean;
+  isVisible: Boolean;
   setIsVisible?: React.Dispatch<boolean>;
+  distance: React.MutableRefObject<any>;
   markerRef?: React.MutableRefObject<any>;
   cameraRef?: React.MutableRefObject<any>;
 }
@@ -17,12 +18,11 @@ export interface arProviderInterface {
 export interface markerParameterInterface {
   type?: 'pattern' | 'barcode' | 'unknown';
   size?: number;
-  patternUrl?: string;
   url?: string;
-  barcodeValue?: number;
+  value?: number;
   changeMatrixMode?: string;
   minConfidence?: number;
-  preset?: 'hiro' | 'kanji' | 'custom';
+  preset?: 'hiro' | 'kanji';
   markerhelpers?: boolean;
   'hit-testing-enabled'?: boolean;
   'hit-testing-renderDebug'?: boolean;
@@ -81,6 +81,7 @@ export interface rendererInterface {
   gestureHandler?: gestureInterface;
   onError?: Function;
   onInit?: Function;
+  autoRestart?: boolean;
 }
 
 export interface sceneInterface extends rendererInterface {
@@ -169,4 +170,11 @@ export interface textInterface {
   'wrap-count': number;
   'wrap-pixels': number;
   'z-offset': number;
+}
+
+export type onCompleteType = (pathName: string) => void;
+
+export interface IMarkerTraining {
+  mainContainer: React.RefObject<HTMLCanvasElement>;
+  imageContainer: React.RefObject<HTMLImageElement>;
 }

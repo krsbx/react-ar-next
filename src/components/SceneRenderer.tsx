@@ -17,7 +17,7 @@ const SceneRenderer: React.FC<sceneInterface> = (props) => {
     ...rest
   } = props;
 
-  const arjs = arToolKit ? prepareToolKitParams(arToolKit) : '';
+  const arjs = prepareToolKitParams(arToolKit);
 
   return (
     // @ts-ignore

@@ -8,7 +8,7 @@ import { rendererInterface } from '../utils/componentInterface';
 import { useEventListener } from 'krsbx-hooks';
 
 const AFrameRenderer: React.FC<rendererInterface> = (props) => {
-  const { gestureHandler, onError, onInit } = props;
+  const { gestureHandler, onError, onInit, autoRestart } = props;
 
   const container = document.body;
   const renderer = useRef();
@@ -23,6 +23,12 @@ const AFrameRenderer: React.FC<rendererInterface> = (props) => {
     !!onError && onError();
 
     console.error("Camera can't be initialize!");
+
+    if (autoRestart) {
+      setTimeout(() => {
+        window.location.reload();
+      }, 3000);
+    }
   });
 
   // On camera can be initialize

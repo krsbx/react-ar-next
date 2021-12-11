@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import { useEventListener } from 'krsbx-hooks';
 import { useARProvider } from '../components/ARProvider';
 import { gestureInterface } from './componentInterface';

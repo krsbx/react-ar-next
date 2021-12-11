@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import { ReactNode } from 'react';
 import ReactDOM from 'react-dom';
 import { PARAMETERS } from './constant';
 
@@ -7,7 +8,7 @@ import { PARAMETERS } from './constant';
  * @param parameters arToolKit parameters
  * @returns toolKitParams
  */
-export const prepareToolKitParams = (parameters: Record<string, any>) => {
+export const prepareToolKitParams = (parameters?: Record<string, any>) => {
   let toolKitParams = '';
 
   if (parameters) {
@@ -39,5 +40,7 @@ export const locationMode = (isGeolocation: boolean) =>
     <a-entity camera position="0 1.6 0" id={cameraId}></a-entity>
   );
 
-export const renderVirtualComponent = (component: any, container: any) =>
-  ReactDOM.createPortal(component, container);
+export const renderVirtualComponent = (
+  component: ReactNode,
+  container: HTMLElement
+) => ReactDOM.createPortal(component, container);
