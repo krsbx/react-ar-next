@@ -19,6 +19,7 @@
 | `canvasWidth` | `number`| - |
 | `trackingMethod` | `string` | `['tango', 'artoolkit', 'best']` |
 | `debugUIEnabled` | `boolean` | `['true', 'false']` |
+| `autoRestart` | `boolean` | `['true', 'false']` |
 
 ### getSceneRef
 `getSceneRef`accepts a function with a single argument and returns a reference to `<a-scene>` primitive [SceneRenderer Component](#SceneRenderer)
@@ -113,8 +114,8 @@ Both Entity and Box component support using an animation
 |  Property  |  Type  |  Supported values  |
 | -------- | :----: | ----------------: |
 | `property` | `string` | - |
-| `from` | `string | { x: number, y: number, z: number }` | - |
-| `to` | `string | { x: number, y: number, z: number }` | - |
+| `from` | `{ x: number, y: number, z: number }` | - |
+| `to` | `{ x: number, y: number, z: number }` | - |
 | `delay` | `number (ms)` | - |
 | `dir` | `string` | `['normal', 'alternate', 'reverse']` | 
 | `dur` | `number (ms)` | - |
@@ -157,3 +158,5 @@ Do not touch this component, just pass the props that it need through the AFrame
 | `wrap-count` | `number` | - |
 | `wrap-pixels` | `number` | - |
 | `z-offset` | `number` | - |
+
+If you want to know more about the utils that you can use, you can read it [here](utils.md)
