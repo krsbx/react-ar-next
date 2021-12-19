@@ -1,0 +1,16 @@
+export declare const PARAMETERS: string[];
+export declare const SOURCE_TYPE: string[];
+export declare const DETECTION_MODE: string[];
+export declare const MATRIX_CODE_TYPE: string[];
+export declare const TRACKING_METHOD: string[];
+export declare const MARKER_TYPE: string[];
+export declare const MARKER_PRESET: string[];
+export declare const ANIMATION_DIRECTIONS: string[];
+export declare const ANIMATION_EASING: string[];
+export declare const ANIMATION_PROPERTIES: string[];
+export declare const TEXT_PROPERTIES: string[];
+export declare const TEXT_ALIGN: string[];
+export declare const TEXT_ANCHOR: string[];
+export declare const TEXT_BASE_LINE: string[];
+export declare const TEXT_SIDE: string[];
+export declare const TEXT_WHITESPACE: string[];

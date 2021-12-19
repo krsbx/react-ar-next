@@ -1,19 +1,7 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _ARProvider = require("../components/ARProvider");
-
+import { useARProvider } from '../components/ARProvider';
 // Use this hooks for getting the current active camera
-var useARCamera = function useARCamera() {
-  var _useARProvider = (0, _ARProvider.useARProvider)(),
-      cameraRef = _useARProvider.cameraRef;
-
-  return cameraRef.current;
+const useARCamera = () => {
+    const { cameraRef } = useARProvider();
+    return cameraRef.current;
 };
-
-var _default = useARCamera;
-exports.default = _default;
+export default useARCamera;
